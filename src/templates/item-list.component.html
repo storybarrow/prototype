@@ -1,0 +1,6 @@
+<ul class="items">
+  <li *ngFor="let item of items" (click)="onSelect(item)"><!-- [routerLink]="['/item', item.id]">-->
+    <span class="card"><b>{{item.name}}</b></span>  {{item.caption}}
+  </li>
+</ul>
+<item-detail [item]="selectedItem"></item-detail>

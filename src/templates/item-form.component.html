@@ -1,0 +1,62 @@
+<div [hidden]="submitted">
+    <h2>New Item</h2>
+    <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+      {{diagnostic}}
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="newItem.name" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="caption">Caption</label>
+        <input type="text" class="form-control" id="caption"
+               required
+               [(ngModel)]="newItem.caption" name="caption"
+               #caption="ngModel">
+        <div [hidden]="caption.valid || caption.pristine"
+             class="alert alert-danger">
+          Caption is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description"
+               [(ngModel)]="newItem.description" name="description">
+        [TODO: remove this] newItem.description: <b>{{newItem.description}}</b>
+      </div>
+      <div class="form-group">
+        <label for="tag">Tag</label>
+        <select class="form-control" id="tag"
+                [(ngModel)]="newItem.tagselect" name="tag">
+          <option *ngFor="let tag of tags" [value]="tag">{{tag}}</option>
+        </select>
+        [TODO: remove this] newItem.tagselect: <b>{{newItem.tagselect}}</b>
+      </div>
+      <button type="Submit" class="btn btn-success" [disabled]="!itemForm.form.valid">Submit</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>Item submitted!</h2>
+  <div class="row">
+    <div class="col-xs-3">Name</div>
+    <div class="col-xs-9  pull-left">{{ newItem.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Caption</div>
+    <div class="col-xs-9 pull-left">{{ newItem.caption }}</div>
+  </div>
+  <div class="row" [hidden]="newItem.description==undefined || newItem.description==''">
+    <div class="col-xs-3">Description</div>
+    <div class="col-xs-9 pull-left">{{ newItem.description }}</div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+</div>
+<button type="Clear" class="btn btn-default" (click)="clearForm(); itemForm.reset()">Clear</button>

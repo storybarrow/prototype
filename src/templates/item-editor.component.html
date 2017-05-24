@@ -1,0 +1,25 @@
+<div *ngIf="item">
+  <h2>{{mode}}</h2>
+  <div *ngIf="item.id"><label>id: </label>{{item.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="item.name" placeholder="name"/>
+  </div>
+  <div>
+    <label>caption: </label>
+    <input [(ngModel)]="item.caption" placeholder="caption"/>
+  </div>
+  <div>
+    <label>description: </label>
+    <input [(ngModel)]="item.description" placeholder="description"/>
+  </div>
+  <div>
+    <label>tags: </label>
+    <input [(ngModel)]="item.tags[0]" placeholder="tag">
+    <input [(ngModel)]="item.tags[1]" placeholder="tag">
+    <input [(ngModel)]="item.tags[2]" placeholder="tag">
+  </div>
+  <button (click)="save()">Save</button>
+  <button (click)="goBack()">Back</button>
+</div>
+{{diagnostic}}
