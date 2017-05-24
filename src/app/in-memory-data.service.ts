@@ -18,7 +18,8 @@ export class InMemoryDataService implements InMemoryDbService {
                description: "I still have no idea what's in it. "+
                             "The only think I remember about the original owner of this briefcase "+
                             "is that he definitely does not look like a bitch.",
-               tags: ["valuable", "mystery", "fictional"]} ,
+               tags: ["valuable", "mystery", "fictional"],
+               imageUrl: "./graphics/briefcase.jpg"} ,
       { id: 3, name: "Gold Ring",
                caption: "A simple gold band with some fancy squiggles inside.",
                description: "This ring was a gift from my cousin. He claims to have 'found it' while out walking one day, "+

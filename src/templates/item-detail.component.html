@@ -4,7 +4,12 @@
   <div><label>name: </label>{{item.name}}</div>
   <div><label>caption: </label>{{item.caption}}</div>
   <div><label>description: </label>{{item.description}}</div>
+  <div *ngIf="item.imageUrl">
+    <img src={{item.imageUrl}} alt={{item.name}} 
+      style="width:200px">
+  </div>
   <div><label>tags: </label>
     <span *ngFor="let tag of (item.tags | stringFilter)">#{{tag}} </span>
   </div>
+  <button (click)="edit()">Edit</button>
 </div>

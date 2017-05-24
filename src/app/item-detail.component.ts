@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Item } from './item';
 
@@ -10,5 +11,11 @@ import { Item } from './item';
 export class ItemDetailComponent {
 
   @Input() item: Item;
+
+  constructor(private router: Router) { }
+
+  edit(): void {
+    this.router.navigate(['/item', this.item.id])
+  }
 
 }
