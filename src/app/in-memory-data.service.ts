@@ -23,9 +23,18 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 3, name: "Gold Ring",
                caption: "A simple gold band with some fancy squiggles inside.",
                description: "This ring was a gift from my cousin. He claims to have 'found it' while out walking one day, "+
-               "but I'm not sure I believe him. Renders the wearer invisible, but also subject to increased NSA scrutiny.",
+                            "but I'm not sure I believe him. Renders the wearer invisible, but also subject to increased NSA scrutiny.",
                tags: ["unique", "powerful", "fictional"] }
     ];
-    return {items};
+    let stories = [
+      { id: 0, name: "Clara and Richard Nishimoto History" ,
+               caption: "Two first-generation citizens start a family in Hawaii during turbulent times." ,
+               description: "Richard Nishimoto and Clara Kuraoka met in Honolulu."+
+                            "They were introduced by a mutual friend and married in 1934."+
+                            "They had three children, Shirley Ann in 1935, Jean in 1940, and Warren in 1942."+
+                            "They lived at 2819 Keama Place in the Manoa Valley for 50 years." ,
+               items: [0] }
+    ];
+    return { items, stories };
   }
 }

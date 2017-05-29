@@ -27,7 +27,11 @@ export class ItemListComponent  {
 
 
   onSelect(item: Item): void {
-    this.selectedItem = item;
+    if (this.selectedItem === item) {
+      this.selectedItem = null;
+    } else {
+      this.selectedItem = item;
+    }
   }
 
 };

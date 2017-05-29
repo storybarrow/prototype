@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ItemListComponent } from './item-list.component';
-import { ItemEditorComponent } from './item-editor.component';
-import { ItemFormComponent } from './item-form.component';
+import { CollectionComponent } from './collection.component';
+
+import { ItemPageComponent } from './item/item-page.component';
+import { ItemEditorComponent } from './item/item-editor.component';
+
 
 
 const routes: Routes = [
   { path: '',  redirectTo: '/collection',  pathMatch: 'full' },
-  { path: 'collection', component: ItemListComponent },
-  //{ path: 'new-item', component: ItemFormComponent },
-  { path: 'item/:id', component: ItemEditorComponent }
+  { path: 'collection', component: CollectionComponent },
+  { path: 'item/:id', component: ItemPageComponent },
+  { path: 'edititem/:id', component: ItemEditorComponent }
 ];
 
 @NgModule({

@@ -11,6 +11,5 @@
   <div><label>tags: </label>
     <span *ngFor="let tag of (item.tags | stringFilter)">#{{tag}} </span>
   </div>
-  <button (click)="goToItem()">Item</button>
   <button (click)="edit()">Edit</button>
 </div>

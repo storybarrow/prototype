@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
@@ -19,6 +19,7 @@ export class ItemEditorComponent implements OnInit {
 
   constructor(
     private itemService: ItemService,
+    private router: Router,
     private route: ActivatedRoute,
     private location: Location
   ) { }
@@ -46,11 +47,11 @@ export class ItemEditorComponent implements OnInit {
   save(): void {
     if (this.mode === "Edit Item") {
       this.itemService.update(this.item)
-        .then(() => this.goBack());
+        .then(() => this.goToItem());
     }
     else {
       this.itemService.create(this.item)
-        .then(() => this.goBack());
+        .then(() => this.goToItem());
     }
   }
 
@@ -58,6 +59,10 @@ export class ItemEditorComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  goToItem(): void {
+    this.router.navigate(['/item', this.item.id]);
   }
 
 

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { StringFilterPipe } from './filter.pipe';
+import { StringFilterPipe } from './pipes/filter.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -13,10 +13,17 @@ import { InMemoryDataService } from './in-memory-data.service';
 
 
 import { AppComponent } from './app.component';
-import { ItemListComponent }  from './item-list.component';
-import { ItemDetailComponent } from './item-detail.component';
-import { ItemEditorComponent } from './item-editor.component';
-import { ItemService } from './item.service';
+import { CollectionComponent } from './collection.component';
+
+import { ItemListComponent }  from './item/item-list.component';
+import { ItemDetailComponent } from './item/item-detail.component';
+import { ItemPageComponent } from './item/item-page.component';
+import { ItemEditorComponent } from './item/item-editor.component';
+import { ItemService } from './item/item.service';
+
+import { StoryListComponent } from './story/story-list.component';
+import { StoryDetailComponent } from './story/story-detail.component';
+import { StoryService } from './story/story.service';
 
 
 @NgModule({
@@ -29,13 +36,18 @@ import { ItemService } from './item.service';
   ],
   declarations: [
     AppComponent,
+    CollectionComponent,
     ItemListComponent,
     ItemDetailComponent,
+    ItemPageComponent,
     ItemEditorComponent,
+    StoryListComponent,
+    StoryDetailComponent,
     StringFilterPipe
   ],
   providers: [ 
-    ItemService 
+    ItemService,
+    StoryService
   ],
   bootstrap: [ AppComponent ]
 })

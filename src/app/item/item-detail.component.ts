@@ -14,8 +14,12 @@ export class ItemDetailComponent {
 
   constructor(private router: Router) { }
 
-  edit(): void {
+  goToItem(): void {
     this.router.navigate(['/item', this.item.id])
+  }
+
+  edit(): void {
+    this.router.navigate(['/edititem', this.item.id])
   }
 
 }
