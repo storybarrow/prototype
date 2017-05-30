@@ -4,3 +4,4 @@
 */app/*js.map
 *.js.map
 *.log
+node_modules/*
