@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { ItemListComponent } from './item/item-list.component';
-import { StoryListComponent } from './story/story-list.component';
+import { ItemListComponent } from './item-list.component';
+import { StoryListComponent } from './story-list.component';
 
 @Component({
   selector: 'collection',

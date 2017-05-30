@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CollectionComponent } from './collection.component';
 
-import { ItemPageComponent } from './item/item-page.component';
-import { ItemEditorComponent } from './item/item-editor.component';
+import { ItemPageComponent } from './item-page.component';
+import { ItemEditorComponent } from './item-editor.component';
 
 
 
