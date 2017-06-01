@@ -14,11 +14,16 @@ export class ItemService {
   constructor(private http: Http) { }
 
   
-  getItems(): Promise<Item[]> {
+  getItems(ids?: number[]): Promise<Item[]> {
+    if (ids) {
+      return this.getItems()
+        .then(items => items.filter(item => ids.indexOf(item.id) >= 0))
+    } else {
     return this.http.get(this.itemsUrl)
       .toPromise()
       .then(response => response.json().data as Item[])
       .catch(this.handleError);
+    }
   }
 
   
@@ -38,10 +43,8 @@ export class ItemService {
   }
 
   blankItem(): Promise<Item> {
-    let newId;
-    this.newId()
-      .then(id => newId = id);
-    return Promise.resolve(new Item(newId, "", "", "", ["", "", ""]));
+    return this.newId()
+      .then(id => new Item(id, "", "", "", ["", "", ""]));
   }
 
 

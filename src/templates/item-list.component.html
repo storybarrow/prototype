@@ -1,6 +1,6 @@
 <h2>Items</h2>
 <ul class="items">
-  <li *ngFor="let item of items" (click)="onSelect(item)"><!-- [routerLink]="['/item', item.id]">-->
+  <li *ngFor="let item of items" (click)="onSelect(item)">
     <span class="card"><b>{{item.name}}</b></span>  {{item.caption}}
   </li>
 </ul>

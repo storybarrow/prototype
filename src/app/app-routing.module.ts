@@ -6,17 +6,25 @@ import { CollectionComponent } from './collection.component';
 import { ItemPageComponent } from './item-page.component';
 import { ItemEditorComponent } from './item-editor.component';
 
+import { StoryPageComponent } from './story-page.component';
+import { StoryEditorComponent } from './story-editor.component';
+
+import { ServerFileDumpComponent } from './server-file-dump.component';
 
 
-const routes: Routes = [
+
+const ROUTES: Routes = [
   { path: '',  redirectTo: '/collection',  pathMatch: 'full' },
   { path: 'collection', component: CollectionComponent },
+  { path: 'serverfile', component: ServerFileDumpComponent },
   { path: 'item/:id', component: ItemPageComponent },
-  { path: 'edititem/:id', component: ItemEditorComponent }
+  { path: 'edititem/:id', component: ItemEditorComponent },
+  { path: 'story/:id', component: StoryPageComponent },
+  { path: 'editstory/:id', component: StoryEditorComponent }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(ROUTES) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

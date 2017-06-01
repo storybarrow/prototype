@@ -38,10 +38,8 @@ export class StoryService {
   }
 
   blankStory(): Promise<Story> {
-    let newId;
-    this.newId()
-      .then(id => newId = id);
-    return Promise.resolve(new Story(newId, "", "", ""));
+    return this.newId()
+      .then(id => new Story(id, "", "", ""));
   }
 
 

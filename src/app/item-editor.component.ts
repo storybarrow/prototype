@@ -10,11 +10,13 @@ import { ItemService } from './item.service';
 
 @Component({
   selector: 'item-editor',
-  templateUrl: 'templates/item-editor.component.html'
+  templateUrl: 'templates/item-editor.component.html',
+  styleUrls: [ 'styles/item-editor.component.css' ]
 })
 export class ItemEditorComponent implements OnInit {
 
-  item: Item;
+  oldItem: Item;
+  newItem: Item;
   mode: string;
 
   constructor(
@@ -33,24 +35,34 @@ export class ItemEditorComponent implements OnInit {
     if (id === "new") {
       this.mode = "New Item";
       this.itemService.blankItem()
-        .then(item => this.item = item);
+        .then(item => {
+          this.oldItem = item;
+          this.newItem = Object.assign({}, item);
+        });
     }
     else {
       this.mode = "Edit Item";
       this.itemService.getItem(+id)
-        .then((item: Item) => this.item = item);
+        .then(item => {
+          this.oldItem = item;
+          this.newItem = Object.assign({}, item);
+        });
     }
-
   }
 
 
+  resetForm(): void {
+    console.log("resetting...");
+    this.newItem = Object.assign({}, this.oldItem);
+  }
+
   save(): void {
     if (this.mode === "Edit Item") {
-      this.itemService.update(this.item)
+      this.itemService.update(this.newItem)
         .then(() => this.goToItem());
     }
     else {
-      this.itemService.create(this.item)
+      this.itemService.create(this.newItem)
         .then(() => this.goToItem());
     }
   }
@@ -62,10 +74,11 @@ export class ItemEditorComponent implements OnInit {
   }
 
   goToItem(): void {
-    this.router.navigate(['/item', this.item.id]);
+    this.router.navigate(['/item', this.newItem.id]);
   }
 
 
   // TODO: Remove this when cleaning
-  get diagnostic() { return JSON.stringify(this.item); }
+  get olddiagnostic() { return JSON.stringify(this.oldItem); }
+  get newdiagnostic() { return JSON.stringify(this.newItem); }
 }

@@ -23,7 +23,11 @@ import { ItemService } from './item.service';
 
 import { StoryListComponent } from './story-list.component';
 import { StoryDetailComponent } from './story-detail.component';
+import { StoryPageComponent } from './story-page.component';
+import { StoryEditorComponent } from './story-editor.component';
 import { StoryService } from './story.service';
+
+import { ServerFileDumpComponent } from './server-file-dump.component';
 
 
 @NgModule({
@@ -37,13 +41,20 @@ import { StoryService } from './story.service';
   declarations: [
     AppComponent,
     CollectionComponent,
+
     ItemListComponent,
     ItemDetailComponent,
     ItemPageComponent,
     ItemEditorComponent,
+
     StoryListComponent,
     StoryDetailComponent,
-    StringFilterPipe
+    StoryPageComponent,
+    StoryEditorComponent,
+
+    StringFilterPipe,
+
+    ServerFileDumpComponent
   ],
   providers: [ 
     ItemService,

@@ -1,0 +1,14 @@
+<div *ngIf="items && stories">
+<div>import {{'{'}} InMemoryDbService {{'}'}} from 'angular-in-memory-web-api'; <br>
+<br>
+export class InMemoryDataService implements InMemoryDbService {{'{'}} <br>
+&nbsp;&nbsp;createDb() {{'{'}} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;let items = [</div>
+      <div>{{itemsString}}</div>
+&nbsp;&nbsp;&nbsp;&nbsp;]; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;let stories = [ <br>
+      <div>{{storiesString}}</div>
+&nbsp;&nbsp;&nbsp;&nbsp;]; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {{'{'}} items, stories {{'}'}}; <br>
+&nbsp;&nbsp;} <br>
+}

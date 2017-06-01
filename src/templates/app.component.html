@@ -1,6 +1,10 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/collection">My Items</a>
-  <a routerLink="/edititem/new">New Item</a>
-</nav>
+<div *ngIf="!hiding">
+  <h1>{{title}}</h1>
+  <nav>
+    <div><a routerLink="/collection">My Collection</a></div>
+    <div><a routerLink="/edititem/new">New Item</a></div>
+    <div><a routerLink="/editstory/new">New Story</a></div>
+    <div><a routerLink="/serverfile">Make Server File</a></div>
+  </nav>
+</div>
 <router-outlet></router-outlet>

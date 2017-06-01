@@ -1,6 +1,6 @@
 <h2>Stories</h2>
 <ul class="stories">
-  <li *ngFor="let story of stories" (click)="onSelect(story)"><!-- [routerLink]="['/story', story.id]">-->
+  <li *ngFor="let story of stories" (click)="onSelect(story)">
     <span class="card"><b>{{story.name}}</b></span>  {{story.caption}}
   </li>
 </ul>
