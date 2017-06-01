@@ -1,4 +1,4 @@
 Last change: 5/31 11:40pm - NJH
 - Added the "Make Server File" link which dumps the text of a valid mock server class file to the screen, containing all of the user's current items and stories.
 - In order to save the changes, copy and paste the contents of this file into storybarrow/src/app/in-memory-data.service.ts completely. (Use Ctrl+A on Win or Cmd+A on OSX to select the contents of the page before copying.)
-- Find an appropriately labeled backup copy of in-memory-data.service.ts in the src directory.
+- Find an appropriately labeled backup copy of in-memory-data.service.ts in the /src/app directory.
