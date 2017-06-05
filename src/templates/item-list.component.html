@@ -1,7 +1,12 @@
-<h2>Items</h2>
-<ul class="items">
-  <li *ngFor="let item of items" (click)="onSelect(item)">
-    <span class="card"><b>{{item.name}}</b></span>  {{item.caption}}
-  </li>
-</ul>
-<item-detail [item]="selectedItem"></item-detail>
+<body>
+<div id="sidebar">
+  <item-detail [item]="selectedItem" [deleteFunc]="clearItem"></item-detail>
+</div>
+<div id="list">
+  <ul class="items">
+    <li *ngFor="let item of items" (click)="onSelect(item)">
+      <span class="card"><b>{{item.name}}</b></span>  {{item.caption}}
+    </li>
+  </ul>
+</div>
+</body>

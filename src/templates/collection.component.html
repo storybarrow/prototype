@@ -1,0 +1,8 @@
+<div id="buttonrow">
+  <button type="button" [ngClass]="buttonStyle('items')"
+    (click)="show('items')">Items</button>
+  <button type="button" [ngClass]="buttonStyle('stories')"
+    (click)="show('stories')">Stories</button>
+</div>
+<item-list *ngIf="selectedList==='items'"></item-list>
+<story-list *ngIf="selectedList==='stories'"></story-list>

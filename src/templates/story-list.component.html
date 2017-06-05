@@ -1,7 +1,12 @@
-<h2>Stories</h2>
-<ul class="stories">
-  <li *ngFor="let story of stories" (click)="onSelect(story)">
-    <span class="card"><b>{{story.name}}</b></span>  {{story.caption}}
-  </li>
-</ul>
-<story-detail [story]="selectedStory"></story-detail>
+<body>
+<div id="sidebar">
+  <story-detail [story]="selectedStory" [deleteFunc]="clearStory"></story-detail>
+</div>
+<div id="list">
+  <ul class="stories">
+    <li *ngFor="let story of stories" (click)="onSelect(story)">
+      <span class="card"><b>{{story.name}}</b></span>  {{story.caption}}
+    </li>
+  </ul>
+</div>
+</body>

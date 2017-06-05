@@ -2,6 +2,7 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Story } from './story';
+import { StoryService } from './story.service';
 
 import { Item } from './item';
 import { ItemService } from './item.service';
@@ -9,14 +10,17 @@ import { ItemService } from './item.service';
 
 @Component({
   selector: 'story-detail',
-  templateUrl: 'templates/story-detail.component.html'
+  templateUrl: 'templates/story-detail.component.html',
+  styleUrls: [ 'styles/story-detail.component.css' ]
 })
 export class StoryDetailComponent {
 
   @Input() story: Story;
+  @Input() deleteFunc: (s: Story) => void;
   items: Item[];
 
   constructor(
+    private storyService: StoryService,
     private itemService: ItemService,
     private router: Router    
   ) { }
@@ -40,6 +44,15 @@ export class StoryDetailComponent {
 
   edit(): void {
     this.router.navigate(['/editstory', this.story.id])
+  }
+
+  delete(): void {
+    this.storyService
+      .delete(this.story)
+      .then(() => {
+        this.deleteFunc(this.story)
+        this.story = null;
+      });
   }
 
 }

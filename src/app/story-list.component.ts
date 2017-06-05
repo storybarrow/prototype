@@ -34,4 +34,13 @@ export class StoryListComponent  {
     }
   }
 
+  clearStory: (story: Story) => void = 
+    // Clears the story from the list, but not the database
+    (story: Story) => {
+      this.stories = this.stories.filter(s => s !== story);
+      if (this.selectedStory === story) {
+        this.selectedStory = null;
+      }
+    }
+
 };

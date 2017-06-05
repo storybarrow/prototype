@@ -68,6 +68,15 @@ export class ItemService {
       .catch(this.handleError);
   }
 
+  delete(item: Item): Promise<void> {
+    const url = `${this.itemsUrl}/${item.id}`;
+    return this.http
+      .delete(url, {headers: this.headers})
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError);
+  }
+
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); //demo

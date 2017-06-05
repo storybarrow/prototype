@@ -1,0 +1,9 @@
+#buttonrow {
+  margin:5px 5px 5px 5px;
+}
+button {
+  font-size:200%
+}
+.selected {
+  background-color:#88F;
+}

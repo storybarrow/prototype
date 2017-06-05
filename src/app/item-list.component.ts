@@ -34,4 +34,13 @@ export class ItemListComponent  {
     }
   }
 
+  clearItem: (item: Item) => void = 
+    // Clears the item from the list, but not the database
+    (item: Item) => {
+      this.items = this.items.filter(i => i !== item);
+      if (this.selectedItem === item) {
+        this.selectedItem = null;
+      }
+    }
+
 };

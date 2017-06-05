@@ -14,8 +14,8 @@ import { ServerFileDumpComponent } from './server-file-dump.component';
 
 
 const ROUTES: Routes = [
-  { path: '',  redirectTo: '/collection',  pathMatch: 'full' },
-  { path: 'collection', component: CollectionComponent },
+  { path: '',  redirectTo: '/home',  pathMatch: 'full' },
+  { path: 'home', component: CollectionComponent },
   { path: 'serverfile', component: ServerFileDumpComponent },
   { path: 'item/:id', component: ItemPageComponent },
   { path: 'edititem/:id', component: ItemEditorComponent },

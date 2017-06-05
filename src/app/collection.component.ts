@@ -5,9 +5,21 @@ import { StoryListComponent } from './story-list.component';
 
 @Component({
   selector: 'collection',
-  template: `
-    <item-list></item-list>
-    <story-list></story-list>
-  `
+  templateUrl: 'templates/collection.component.html',
+  styleUrls: [ 'styles/collection.component.css' ]
 })
-export class CollectionComponent { }
+export class CollectionComponent { 
+  selectedList: string;
+
+  show(selectedList: string): void { 
+    this.selectedList = selectedList;
+  }
+
+  buttonStyle(buttonName: string): string {
+    if (buttonName === this.selectedList) {
+      return "btn selected";
+    } else {
+      return "btn";
+    }
+  }
+}
