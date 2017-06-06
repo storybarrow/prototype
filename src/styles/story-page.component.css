@@ -1,7 +1,7 @@
 body {
   margin:5px 0 5px 5px;
   background-color:transparent;
-  height:calc(100% - 50px);
+  height:400px;
   overflow:hidden; overflow-y:scroll;
 }
 
@@ -10,33 +10,33 @@ body {
   margin:5px 0 5px 5px;  
 }
 
+button {
+  font-size: 15px;
+}
+
 
 #name {
-  font-size:20px;
+  font-size:24px;
   font-weight:bold;
 }
 
 #caption {
-  font-size:12px;
+  font-size:13px;
   font-style:italic;
 }
 
 #description {
-  font-size:14px;
+  font-size:15px;
   margin:5px 0 5px 0;
-}
-
-#image {
-  margin:5px 0 5px 5px;
 }
 
 #tags {
   font-weight:bold;
-  font-size:14px;
+  font-size:15px;
   margin:5px 0 5px 0;
 }
 
-#item-id {
+#story-id {
   float:right;
   font-size:12px;
 }

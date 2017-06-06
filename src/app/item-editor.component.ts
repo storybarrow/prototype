@@ -35,7 +35,7 @@ export class ItemEditorComponent implements OnInit {
     if (id === "new") {
       this.mode = "New Item";
       this.itemService.blankItem()
-        .then(item => {
+        .then((item: Item) => {
           this.oldItem = item;
           this.newItem = Object.assign({}, item);
         });
@@ -43,7 +43,7 @@ export class ItemEditorComponent implements OnInit {
     else {
       this.mode = "Edit Item";
       this.itemService.getItem(+id)
-        .then(item => {
+        .then((item: Item) => {
           this.oldItem = item;
           this.newItem = Object.assign({}, item);
         });

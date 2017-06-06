@@ -1,0 +1,22 @@
+header {
+  height:150px;
+  margin:5px 0 5px 0;
+}
+
+.logo {
+  float:left;
+}
+
+nav {
+  margin:0 0 0 5px;
+  float:left;
+}
+
+.nav-card {
+  background-color:#ddd;
+  padding:3px 5px;
+  height:25%;
+  width:125%;
+  margin:5px 0 5px 0;
+  text-align: left;
+}

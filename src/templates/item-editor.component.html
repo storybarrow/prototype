@@ -1,7 +1,6 @@
-<div *ngIf="newItem">
-  <h2>{{mode}}</h2>
+<body *ngIf="newItem">
+  <h1>{{mode}}</h1>
   <form (ngSubmit)="save()" #itemForm="ngForm">
-    <div *ngIf="newItem.id"><label>id: </label>{{newItem.id}}</div>
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name"
@@ -44,6 +43,7 @@
       <input type="text" class="form-control" id="tag"
         [(ngModel)]="newItem.tags[2]" name="tag2">
     </div>
+    <div *ngIf="newItem.id"><label>id: </label>{{newItem.id}}</div>
     <button type="Submit" class="btn btn-success"
       [disabled]="!itemForm.form.valid">Save</button>
     <button type="button" class="btn btn-warning"
@@ -51,6 +51,6 @@
     <button type="button" class="btn"
       (click)="goBack()">Back</button>
   </form>
-</div>
-<div>Reference: {{olddiagnostic}}</div>
-<div>Edited:    {{newdiagnostic}}</div>
+</body>
+<!-- <div>Reference: {{olddiagnostic}}</div>
+<div>Edited:    {{newdiagnostic}}</div> -->

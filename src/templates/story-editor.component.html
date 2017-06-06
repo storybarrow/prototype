@@ -1,19 +1,42 @@
-<div *ngIf="story">
-  <h2>{{mode}}</h2>
-  <div *ngIf="story.id"><label>id: </label>{{story.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="story.name" placeholder="name"/>
-  </div>
-  <div>
-    <label>caption: </label>
-    <input [(ngModel)]="story.caption" placeholder="caption"/>
-  </div>
-  <div>
-    <label>description: </label>
-    <input [(ngModel)]="story.description" placeholder="description"/>
-  </div>
-  <button (click)="save()">Save</button>
-  <button (click)="goBack()">Back</button>
-</div>
-{{diagnostic}}
+<body *ngIf="newStory">
+  <h1>{{mode}}</h1>
+  <form (ngSubmit)="save()" #storyForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"
+        required
+        [(ngModel)]="newStory.name" name="name"
+        #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+        class="alert alert-danger">
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="caption">Caption</label>
+      <input type="text" class="form-control" id="caption"
+        required
+        [(ngModel)]="newStory.caption" name="caption"
+        #caption="ngModel">
+      <div [hidden]="caption.valid || caption.pristine"
+        class="alert alert-danger">
+        Caption is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" rows="5"
+        [(ngModel)]="newStory.description" name="description">
+      </textarea>
+    </div>
+    <div *ngIf="newStory.id"><label>id: </label>{{newStory.id}}</div>
+    <button type="Submit" class="btn btn-success"
+      [disabled]="!storyForm.form.valid">Save</button>
+    <button type="button" class="btn btn-warning"
+      (click)="resetForm()">Reset</button>
+    <button type="button" class="btn"
+      (click)="goBack()">Back</button>
+  </form>
+</body>
+<!-- <div>Reference: {{olddiagnostic}}</div>
+<div>Edited:    {{newdiagnostic}}</div> -->

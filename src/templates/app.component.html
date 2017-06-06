@@ -1,10 +1,21 @@
-<div *ngIf="!hiding">
-  <h1>{{title}}</h1>
+<header *ngIf="!hiding">
+  <div class="logo">
+    <img src="./graphics/sb-logo.jpg" alt="StoryBarrow"
+      style="height:150px">
+  </div>
   <nav>
-    <div><a routerLink="/home">Home</a></div>
-    <div><a routerLink="/edititem/new">New Item</a></div>
-    <div><a routerLink="/editstory/new">New Story</a></div>
-    <div><a routerLink="/serverfile">Make Server File</a></div>
+    <div class="nav-card">
+      <a routerLink="/home">Home</a>
+    </div>
+    <div class="nav-card">
+      <a routerLink="/edititem/new">New Item</a>
+    </div>
+    <div class="nav-card">
+      <a routerLink="/editstory/new">New Story</a>
+    </div>
+    <div class="nav-card">
+      <a routerLink="/serverfile">Make Server File</a>
+    </div>
   </nav>
-</div>
+</header>
 <router-outlet></router-outlet>

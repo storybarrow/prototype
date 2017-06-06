@@ -14,7 +14,8 @@ import { ItemService } from './item.service';
 
 @Component({
   selector: 'story-page',
-  templateUrl: 'templates/story-page.component.html'
+  templateUrl: 'templates/story-page.component.html',
+  styleUrls: [ 'styles/story-page.component.css' ]
 })
 export class StoryPageComponent implements OnInit {
 
@@ -39,12 +40,22 @@ export class StoryPageComponent implements OnInit {
       });
   }
 
+  goHome(): void { 
+    this.router.navigate(['']);
+  }
+
   goBack(): void {
     this.location.back();
   }
 
   edit(): void {
     this.router.navigate(['/editstory', this.story.id])
+  }
+
+  delete(): void {
+    this.storyService
+      .delete(this.story)
+      .then(() => this.goHome());
   }
 
 }

@@ -10,11 +10,13 @@ import { StoryService } from './story.service';
 
 @Component({
   selector: 'story-editor',
-  templateUrl: 'templates/story-editor.component.html'
+  templateUrl: 'templates/story-editor.component.html',
+  styleUrls: [ 'styles/story-editor.component.css' ]
 })
 export class StoryEditorComponent implements OnInit {
 
-  story: Story;
+  oldStory: Story;
+  newStory: Story;
   mode: string;
 
   constructor(
@@ -33,24 +35,34 @@ export class StoryEditorComponent implements OnInit {
     if (id === "new") {
       this.mode = "New Story";
       this.storyService.blankStory()
-        .then(story => this.story = story);
+        .then(story => {
+          this.oldStory = story;
+          this.newStory = Object.assign({}, story);
+        });
     }
     else {
       this.mode = "Edit Story";
       this.storyService.getStory(+id)
-        .then((story: Story) => this.story = story);
+        .then((story: Story) => {
+          this.oldStory = story;
+          this.newStory = Object.assign({}, story);
+        });
     }
-
   }
 
 
+  resetForm(): void {
+    console.log("resetting...");
+    this.newStory = Object.assign({}, this.oldStory);
+  }
+
   save(): void {
     if (this.mode === "Edit Story") {
-      this.storyService.update(this.story)
+      this.storyService.update(this.newStory)
         .then(() => this.goToStory());
     }
     else {
-      this.storyService.create(this.story)
+      this.storyService.create(this.newStory)
         .then(() => this.goToStory());
     }
   }
@@ -62,10 +74,11 @@ export class StoryEditorComponent implements OnInit {
   }
 
   goToStory(): void {
-    this.router.navigate(['/story', this.story.id]);
+    this.router.navigate(['/story', this.newStory.id]);
   }
 
 
   // TODO: Remove this when cleaning
-  get diagnostic() { return JSON.stringify(this.story); }
+  get olddiagnostic() { return JSON.stringify(this.oldStory); }
+  get newdiagnostic() { return JSON.stringify(this.newStory); }
 }

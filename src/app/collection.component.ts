@@ -17,9 +17,9 @@ export class CollectionComponent {
 
   buttonStyle(buttonName: string): string {
     if (buttonName === this.selectedList) {
-      return "btn selected";
+      return "tab selected";
     } else {
-      return "btn";
+      return "tab";
     }
   }
 }

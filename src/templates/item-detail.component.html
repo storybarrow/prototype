@@ -1,11 +1,11 @@
 <body *ngIf="item">
   <div id="name">{{item.name}}</div>
   <div id="caption">{{item.caption}}</div>
-  <div id="description">{{item.description}}</div>
   <div id="image" *ngIf="item.imageUrl">
-    <img src={{item.imageUrl}} alt={{item.name}} 
-      style="width:200px">
+    <img [src]="'./graphics/' + item.imageUrl"
+      alt={{item.name}} style="width:200px">
   </div>
+  <div id="description">{{item.description}}</div>
   <div id="tags">
     <span *ngFor="let tag of (item.tags | stringFilter)">
       <b>#{{tag}}</b>

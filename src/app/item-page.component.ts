@@ -11,7 +11,8 @@ import { ItemService } from './item.service';
 
 @Component({
   selector: 'item-page',
-  templateUrl: 'templates/item-page.component.html'
+  templateUrl: 'templates/item-page.component.html',
+  styleUrls: [ 'styles/item-page.component.css' ]
 })
 export class ItemPageComponent implements OnInit {
 
@@ -30,12 +31,22 @@ export class ItemPageComponent implements OnInit {
       .then((item: Item) => this.item = item);
   }
 
+  goHome(): void { 
+    this.router.navigate(['']);
+  }
+
   goBack(): void {
     this.location.back();
   }
 
   edit(): void {
-    this.router.navigate(['/edititem', this.item.id])
+    this.router.navigate(['/edititem', this.item.id]);
+  }
+
+  delete(): void {
+    this.itemService
+      .delete(this.item)
+      .then(() => this.goHome());
   }
 
 }

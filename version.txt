@@ -1,4 +1,10 @@
-Last change: 6/5
+6/6 NJH
+- Standardized styling and templating updates from 6/5 across all components.
+- When adding images to items, put the image in the src/graphics/ directory then use only the filename for the item. The app will automatically look in the graphics directory.
+
+
+
+6/5 NJH
 - Renamed "/collection" route to "/home"
 - On the home page, the item and story lists are now linked to button selectors at the top of the page.
 - Redesigned List and Detail layouts for Items and Stories.

@@ -1,15 +1,21 @@
-<div *ngIf="item">
-  <h2>{{item.name}}</h2>
-  <div><label>id: </label>{{item.id}}</div>
-  <div><label>name: </label>{{item.name}}</div>
-  <div><label>caption: </label>{{item.caption}}</div>
-  <div><label>description: </label>{{item.description}}</div>
-  <div *ngIf="item.imageUrl">
-    <img src={{item.imageUrl}} alt={{item.name}} 
-      style="width:200px">
+<body *ngIf="item">
+  <div id="name">{{item.name}}</div>
+  <div id="caption">{{item.caption}}</div>
+  <div id="image" *ngIf="item.imageUrl">
+    <img [src]="'./graphics/' + item.imageUrl"
+      alt={{item.name}} style="width:200px">
   </div>
-  <div><label>tags: </label>
-    <span *ngFor="let tag of (item.tags | stringFilter)">#{{tag}} </span>
+  <div id="description">{{item.description}}</div>
+  <div id="tags">
+    <span *ngFor="let tag of (item.tags | stringFilter)">
+      <b>#{{tag}}</b>
+    </span>
   </div>
-  <button (click)="edit()">Edit</button>
+  <div id="item-id"><label>id: </label>{{item.id}}</div>
+</body>
+<div *ngIf="item" id="buttonrow">
+  <button type="button" class="btn btn-warning"
+    (click)="edit()">Edit</button>
+  <button type="button" class="btn btn-danger"
+    (click)="delete()">Delete</button>
 </div>

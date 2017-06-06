@@ -1,16 +1,17 @@
 body {
   margin:5px 5px 5px 5px;
+  height:400px;
 }
 #sidebar {
   float:right;
   width:30%;
   background:#ddd;
-  height:400px;
+  height:100%;
 }
 #list {
   float:left;
   width:70%;
-  height:400px;
+  height:100%;
   background-color: #555;
   padding:2px;
   overflow:hidden; overflow-y:scroll;
