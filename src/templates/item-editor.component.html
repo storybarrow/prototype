@@ -32,7 +32,11 @@
     <div class="form-group">
       <label for="imageUrl">Image</label>
       <input type="text" class="form-control" id="imageUrl"
-        [(ngModel)]="newItem.imageUrl" name="path">
+        [(ngModel)]="newItem.imageUrl" name="path"
+        #image="ngModel">
+      <img [hidden]="!image.valid || image.pristine"
+        [src]="'./graphics/' + newItem.imageUrl"
+        style="width:150px margin:10px 0 10px 0">
     </div>
     <div class="form-group">
       <label for="tags">Tags</label>
