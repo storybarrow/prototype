@@ -2,7 +2,18 @@
   <div id="name">{{story.name}}</div>
   <div id="caption">{{story.caption}}</div>
   <div id="description">{{story.description}}</div>
-  <li *ngFor="let item of items">{{item.name}}</li>
+  <div id="items">
+    <ul class="item-list">
+      <li *ngFor="let item of items">
+        <span class="item-card" (click)=onSelect(item)>
+          {{item.name}}
+        </span>
+      </li>
+    </ul>
+    <div id="detail" *ngIf="selectedItem">
+      <item-detail [item]="selectedItem"></item-detail>
+    </div>
+  </div>
   <div id="story-id"><label>id: </label>{{story.id}}</div>
 </body>
 <div *ngIf="story" id="buttonrow">

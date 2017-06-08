@@ -1,6 +1,7 @@
 <body *ngIf="newStory">
   <h1>{{mode}}</h1>
   <form (ngSubmit)="save()" #storyForm="ngForm">
+    
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name"
@@ -12,6 +13,7 @@
         Name is required.
       </div>
     </div>
+    
     <div class="form-group">
       <label for="caption">Caption</label>
       <input type="text" class="form-control" id="caption"
@@ -23,13 +25,28 @@
         Caption is required.
       </div>
     </div>
+    
     <div class="form-group">
       <label for="description">Description</label>
       <textarea class="form-control" id="description" rows="5"
         [(ngModel)]="newStory.description" name="description">
       </textarea>
     </div>
+    
+    <div class="form-group">
+      <label for="items">Items</label>
+      <ul class="item-list">
+        <li *ngFor="let item of newItems">
+          <span class="item-card">{{item.name}}</span>
+          <button type="button" class="btn btn-danger btn-xs btn-delete"
+            (click)="deleteItem(item.id)">x</button>
+        </li>
+      </ul>
+      <item-search [searchAction]="addItemOnSearch"></item-search>
+    </div>
+    
     <div *ngIf="newStory.id"><label>id: </label>{{newStory.id}}</div>
+
     <button type="Submit" class="btn btn-success"
       [disabled]="!storyForm.form.valid">Save</button>
     <button type="button" class="btn btn-warning"
@@ -38,5 +55,3 @@
       (click)="goBack()">Back</button>
   </form>
 </body>
-<!-- <div>Reference: {{olddiagnostic}}</div>
-<div>Edited:    {{newdiagnostic}}</div> -->

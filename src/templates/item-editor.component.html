@@ -1,6 +1,7 @@
 <body *ngIf="newItem">
   <h1>{{mode}}</h1>
   <form (ngSubmit)="save()" #itemForm="ngForm">
+
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name"
@@ -12,6 +13,7 @@
         Name is required.
       </div>
     </div>
+  
     <div class="form-group">
       <label for="caption">Caption</label>
       <input type="text" class="form-control" id="caption"
@@ -23,12 +25,14 @@
         Caption is required.
       </div>
     </div>
+  
     <div class="form-group">
       <label for="description">Description</label>
       <textarea class="form-control" id="description" rows="5"
         [(ngModel)]="newItem.description" name="description">
       </textarea>
     </div>
+  
     <div class="form-group">
       <label for="imageUrls">Images</label>
       <div id="imagerow" *ngIf="newItem.imageUrls.length > 0">
@@ -47,6 +51,7 @@
           (click)="addImage()">+</button>
       </div>
     </div>
+  
     <div class="form-group">
       <label for="tags">Tags</label>
       <ul class="tags">
@@ -63,6 +68,7 @@
         [disabled]="!newtag.valid"
         (click)="addTag()">+</button>
     </div>
+  
     <div *ngIf="newItem.id"><label>id: </label>{{newItem.id}}</div>
     <button type="Submit" class="btn btn-success"
       [disabled]="!itemForm.form.valid">Save</button>
@@ -72,5 +78,3 @@
       (click)="goBack()">Back</button>
   </form>
 </body>
-<!-- <div>Reference: {{olddiagnostic}}</div>
-<div>Edited:    {{newdiagnostic}}</div> -->

@@ -19,6 +19,6 @@
     (click)="goToItem()">Item</button>
   <button type="button" class="btn btn-warning"
     (click)="edit()">Edit</button>
-  <button type="button" class="btn btn-danger"
+  <button *ngIf="deleteFunc" type="button" class="btn btn-danger"
     (click)="delete()">Delete</button>
 </div>

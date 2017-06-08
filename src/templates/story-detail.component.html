@@ -2,9 +2,13 @@
   <div id="name">{{story.name}}</div>
   <div id="caption">{{story.caption}}</div>
   <div id="description">{{story.description}}</div>
-  <div id="items">
-    <li *ngFor="let item of items">{{item.name}}</li>
-  </div>
+  <ul class="item-list">
+    <li *ngFor="let item of items">
+      <span class="item-card" (click)=goToItem(item)>
+        {{item.name}}
+      </span>
+    </li>
+  </ul>
   <div id="story-id"><label>id: </label>{{story.id}}</div>
 </body>
 <div *ngIf="story" id="buttonrow">

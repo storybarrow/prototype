@@ -42,6 +42,10 @@ export class StoryDetailComponent {
     this.router.navigate(['/story', this.story.id])
   }
 
+  goToItem(item: Item): void {
+    this.router.navigate(['/item', item.id]);
+  }
+
   edit(): void {
     this.router.navigate(['/editstory', this.story.id])
   }

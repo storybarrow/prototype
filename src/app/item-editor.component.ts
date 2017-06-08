@@ -105,7 +105,4 @@ export class ItemEditorComponent implements OnInit {
   }
 
 
-  // TODO: Remove this when cleaning
-  get olddiagnostic() { return JSON.stringify(this.oldItem); }
-  get newdiagnostic() { return JSON.stringify(this.newItem); }
 }

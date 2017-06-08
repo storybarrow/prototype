@@ -7,6 +7,11 @@ h1 {
   font-weight:bold;
 }
 
+.alert {
+  padding:8px;
+  width:140px;
+}
+
 label {
   margin:0;
 }
@@ -17,13 +22,55 @@ input {
 }
 
 #name {
-  width:200px;
+  width:300px;
 }
 
-#tag {
+#item-input {
   width:200px;
+  display:inline-block;
 }
 
-#imageUrl {
-  width:200px;
+.btn-add {
+  font-weight:bold;
+}
+
+
+
+
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.item-list {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width:300px;
+}
+.item-list li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  margin: .5em;
+  padding: 0em 0;
+  height:2em;  width:auto;
+  border-radius: 4px;
+}
+.item-list .text {
+  font-weight: bold;
+  position: relative;
+  vertical-align: middle;
+}
+.item-list .item-card {
+  display: inline-block;
+  font-weight: bold;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: 0px;
+  height: 2.2em;
+  border-radius: 4px;
 }

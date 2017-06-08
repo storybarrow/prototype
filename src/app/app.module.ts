@@ -19,7 +19,9 @@ import { ItemListComponent }  from './item-list.component';
 import { ItemDetailComponent } from './item-detail.component';
 import { ItemPageComponent } from './item-page.component';
 import { ItemEditorComponent } from './item-editor.component';
+import { ItemSearchComponent } from './item-search.component';
 import { ItemService } from './item.service';
+import { ItemSearchService } from './item-search.service';
 
 import { StoryListComponent } from './story-list.component';
 import { StoryDetailComponent } from './story-detail.component';
@@ -46,6 +48,7 @@ import { ServerFileDumpComponent } from './server-file-dump.component';
     ItemDetailComponent,
     ItemPageComponent,
     ItemEditorComponent,
+    ItemSearchComponent,
 
     StoryListComponent,
     StoryDetailComponent,
@@ -58,6 +61,7 @@ import { ServerFileDumpComponent } from './server-file-dump.component';
   ],
   providers: [ 
     ItemService,
+    ItemSearchService,
     StoryService
   ],
   bootstrap: [ AppComponent ]

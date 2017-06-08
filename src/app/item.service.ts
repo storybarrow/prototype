@@ -36,7 +36,6 @@ export class ItemService {
   }
 
 
-
   newId(): Promise<number> {
     return this.getItems()
       .then(items => items.length);

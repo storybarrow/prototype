@@ -21,6 +21,7 @@ export class StoryPageComponent implements OnInit {
 
   story: Story;
   items: Item[];
+  selectedItem: Item;
 
   constructor(
     private storyService: StoryService,
@@ -38,6 +39,14 @@ export class StoryPageComponent implements OnInit {
         this.itemService.getItems(this.story.item_ids)
         .then(items => this.items = items);
       });
+  }
+
+  onSelect(item: Item): void {
+    if (this.selectedItem === item) {
+      this.selectedItem = null;
+    } else {
+      this.selectedItem = item;
+    }
   }
 
   goHome(): void { 

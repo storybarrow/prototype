@@ -28,7 +28,7 @@ button {
 #imagerow {
   margin:10px 0 10px 0;
   padding:5px;
-  height:100px;  width:calc(100% - 5px);
+  height:150px;  width:calc(100% - 5px);
   white-space:nowrap;
   overflow:hidden;  overflow-x:auto;
 }

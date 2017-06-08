@@ -1,3 +1,10 @@
+6/8
+- Built multiple tagging interface for items.
+- Built multiple image representation and interface for items.
+- Added item insertion/deletion to stories.
+
+
+
 6/6 NJH
 - Standardized styling and templating updates from 6/5 across all components.
 - When adding images to items, put the image in the src/graphics/ directory then use only the filename for the item. The app will automatically look in the graphics directory.
