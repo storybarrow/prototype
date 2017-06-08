@@ -18,6 +18,10 @@ export class ItemEditorComponent implements OnInit {
   oldItem: Item;
   newItem: Item;
   mode: string;
+  newTag: string;
+  newImageUrl: string;
+  selectedImageUrl: string;
+
 
   constructor(
     private itemService: ItemService,
@@ -67,6 +71,29 @@ export class ItemEditorComponent implements OnInit {
     }
   }
 
+
+  deleteImage(imageUrl: string): void {
+    this.newItem.imageUrls = this.newItem.imageUrls.filter(url => url !== imageUrl);
+  }
+
+  addImage(): void {
+    if (typeof this.newImageUrl === "string" && this.newImageUrl.length > 0) {
+      this.newItem.imageUrls = this.newItem.imageUrls.concat([this.newImageUrl]);
+      this.newImageUrl = null;
+    }
+  }
+
+
+  deleteTag(tag: string): void {
+    this.newItem.tags = this.newItem.tags.filter(t => t !== tag);
+  }
+
+  addTag(): void {
+    if (typeof this.newTag === "string" && this.newTag.length > 0) {
+      this.newItem.tags = this.newItem.tags.concat([this.newTag]);
+      this.newTag = null;
+    }
+  }
 
 
   goBack(): void {

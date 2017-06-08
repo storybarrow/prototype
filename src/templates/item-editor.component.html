@@ -30,22 +30,38 @@
       </textarea>
     </div>
     <div class="form-group">
-      <label for="imageUrl">Image</label>
-      <input type="text" class="form-control" id="imageUrl"
-        [(ngModel)]="newItem.imageUrl" name="path"
-        #image="ngModel">
-      <img [hidden]="!image.valid || image.pristine"
-        [src]="'./graphics/' + newItem.imageUrl"
-        style="width:150px margin:10px 0 10px 0">
+      <label for="imageUrls">Images</label>
+      <div id="imagerow" *ngIf="newItem.imageUrls.length > 0">
+        <div *ngFor="let imgUrl of newItem.imageUrls" class="itemimage">
+          <img [src]="'./graphics/' + imgUrl">
+          <button type="button" class="btn btn-danger btn-xs btn-delete-image"
+            (click)="deleteImage(imgUrl)">x</button>
+        </div>
+      </div>
+      <div class="image-input-bar">
+        <input type="text" class="form-control" id="image-input"
+          [(ngModel)]="newImageUrl" name="path"
+          #newimage="ngModel">
+        <button type="button" class="btn btn-success btn-xs btn-add"
+          [disabled]="!newimage.valid"
+          (click)="addImage()">+</button>
+      </div>
     </div>
     <div class="form-group">
       <label for="tags">Tags</label>
-      <input type="text" class="form-control" id="tag"
-        [(ngModel)]="newItem.tags[0]" name="tag0">
-      <input type="text" class="form-control" id="tag"
-        [(ngModel)]="newItem.tags[1]" name="tag1">
-      <input type="text" class="form-control" id="tag"
-        [(ngModel)]="newItem.tags[2]" name="tag2">
+      <ul class="tags">
+        <li *ngFor="let tag of newItem.tags">
+          <span class="tag">#{{tag}}</span>
+          <button type="button" class="btn btn-danger btn-xs btn-delete"
+            (click)="deleteTag(tag)">x</button>
+        </li>
+      </ul>
+      <input type="text" class="form-control" id="tag-input"
+        [(ngModel)]="newTag" name="tag"
+        #newtag="ngModel">
+      <button type="button" class="btn btn-success btn-xs btn-add"
+        [disabled]="!newtag.valid"
+        (click)="addTag()">+</button>
     </div>
     <div *ngIf="newItem.id"><label>id: </label>{{newItem.id}}</div>
     <button type="Submit" class="btn btn-success"

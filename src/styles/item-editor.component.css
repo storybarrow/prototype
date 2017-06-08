@@ -7,6 +7,11 @@ h1 {
   font-weight:bold;
 }
 
+.alert {
+  padding:8px;
+  width:140px;
+}
+
 label {
   margin:0;
 }
@@ -17,13 +22,76 @@ input {
 }
 
 #name {
-  width:200px;
+  width:300px;
 }
 
-#tag {
+#image-input {
   width:200px;
+  display:inline-block;
 }
 
-#imageUrl {
-  width:200px;
+#imagerow {
+  margin:0 0 10px 0;
+  padding:5px;
+  height:100px;  width:calc(100% - 5px);
+  white-space:nowrap;
+  overflow:hidden;  overflow-x:auto;
+}
+
+.itemimage {
+  position:relative;
+  height:100px;
+  margin:5px;
+  display:inline-block;
+}
+
+img {
+  height:calc(100% - 10px);
+}
+
+#imagerow .selected {
+  border:solid;
+  border-width:30px;
+  background-color: #DDD;
+  color:#33b;
+}
+
+#tag-input {
+  width:150px;
+  display:inline-block;
+  margin:6px 0 0 0;
+}
+
+.tags {
+  margin:0;
+  list-style-type:none;
+  padding:0;
+}
+
+.tag {
+  display:inline-block;
+  font-weight:bold;
+  padding:2px 4px 2px 4px;
+  width:auto;
+  background-color:#BBB;
+  border-radius:4px;
+  margin:6px 3px 0 3px;
+  color:#444;
+}
+
+.btn-delete {
+  font-weight:bold;
+}
+
+.btn-add {
+  font-weight:bold;
+}
+
+.btn-delete-image {
+  position:absolute;
+  top:1px;
+  right:1px;
+  font-weight:bold;
+  opacity:0.8;
+  border-radius:10px;
 }
