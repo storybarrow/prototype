@@ -29,7 +29,7 @@ import { StoryPageComponent } from './story-page.component';
 import { StoryEditorComponent } from './story-editor.component';
 import { StoryService } from './story.service';
 
-import { ServerFileDumpComponent } from './server-file-dump.component';
+import { ServerFileService } from './server-file.service';
 
 
 @NgModule({
@@ -55,14 +55,13 @@ import { ServerFileDumpComponent } from './server-file-dump.component';
     StoryPageComponent,
     StoryEditorComponent,
 
-    StringFilterPipe,
-
-    ServerFileDumpComponent
+    StringFilterPipe
   ],
   providers: [ 
     ItemService,
     ItemSearchService,
-    StoryService
+    StoryService,
+    ServerFileService
   ],
   bootstrap: [ AppComponent ]
 })

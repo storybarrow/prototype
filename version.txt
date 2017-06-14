@@ -1,4 +1,15 @@
-6/8
+6/14 NJH
+- Finalized new direct download for in-memory-data.service.ts file. The "Make Data Service File" fetches the formatted and up-to-date file from the new ServerFileService then is replaced by a Download button which initiates the file download. In order to work around Angular's security scrubbing, the download URI is sanitized manually by a separate Angular Component.
+- Removed the now obsolete ServerFileDumpComponent.
+
+
+
+6/12 NJH
+- Testing in-memory downloads by replacing the ServerDumpComponent with a ServerFileService which serves up a URI encoded string. Security issues are still a problem.
+
+
+
+6/8 NJH
 - Built multiple tagging interface for items.
 - Built multiple image representation and interface for items.
 - Added item insertion/deletion to stories.

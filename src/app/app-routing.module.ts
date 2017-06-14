@@ -9,14 +9,11 @@ import { ItemEditorComponent } from './item-editor.component';
 import { StoryPageComponent } from './story-page.component';
 import { StoryEditorComponent } from './story-editor.component';
 
-import { ServerFileDumpComponent } from './server-file-dump.component';
-
 
 
 const ROUTES: Routes = [
   { path: '',  redirectTo: '/home',  pathMatch: 'full' },
   { path: 'home', component: CollectionComponent },
-  { path: 'serverfile', component: ServerFileDumpComponent },
   { path: 'item/:id', component: ItemPageComponent },
   { path: 'edititem/:id', component: ItemEditorComponent },
   { path: 'story/:id', component: StoryPageComponent },

@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
+import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 
 import { ItemListComponent } from './item-list.component';
 import { StoryListComponent } from './story-list.component';
+
+import { ServerFileService } from './server-file.service';
+
+
 
 @Component({
   selector: 'collection',
@@ -9,7 +14,19 @@ import { StoryListComponent } from './story-list.component';
   styleUrls: [ 'styles/collection.component.css' ]
 })
 export class CollectionComponent { 
+  
   selectedList: string;
+  hrefconst: string = 'data:text/plain;charset=utf-8,';
+  serverhref: SafeUrl;
+  buttonPrepping: boolean = false;
+  downloadReady: boolean = false;
+  prepButtonText: string = "Make Data Service File";
+
+  constructor(
+    private serverFileService: ServerFileService,
+    private sanitizer: DomSanitizer
+  ) { }
+
 
   show(selectedList: string): void { 
     this.selectedList = selectedList;
@@ -21,5 +38,29 @@ export class CollectionComponent {
     } else {
       return "tab";
     }
+  }
+
+  updateHref(): void {
+    this.serverFileService
+      .getEncodedText()
+      .then(text => {
+        this.serverhref = this.sanitizer
+          .bypassSecurityTrustUrl(this.hrefconst + text);
+        this.buttonPrepping = false;
+        this.prepButtonText = "Make Data Service File"
+        this.downloadReady = true;
+      });
+  }
+
+  prepDataServiceFile(): void {
+    this.buttonPrepping = true;
+    this.prepButtonText = "Preparing..."
+    this.updateHref();
+  }
+
+  downloadClick(): boolean {
+    this.downloadReady = false;
+    console.log("clicked");
+    return true;
   }
 }

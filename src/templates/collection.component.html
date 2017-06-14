@@ -1,4 +1,4 @@
-<div id="buttonrow">
+<div id="selector-row">
   <button type="button" [ngClass]="buttonStyle('items')"
     (click)="show('items')">Items</button>
   <button type="button" [ngClass]="buttonStyle('stories')"
@@ -6,3 +6,15 @@
 </div>
 <item-list *ngIf="selectedList==='items'"></item-list>
 <story-list *ngIf="selectedList==='stories'"></story-list>
+
+<div id="data-service-download">
+  <button *ngIf="!downloadReady"
+    type="button" (click)="prepDataServiceFile()"
+    class="btn btn" [disabled]="buttonPrepping">
+    {{prepButtonText}}
+  </button>
+  <a *ngIf="downloadReady"
+    [href]="serverhref" download="in-memory-data.service.ts"
+    (click)="downloadClick()"
+    class="btn btn-primary">Download File</a>
+</div>
