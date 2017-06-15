@@ -1,3 +1,8 @@
+6/15 NJH
+- Fixed a bug that caused the ItemEditorComponent to fail to reload the form when clicking on the header's "New Item" button while editing an existing item.
+- Same fix as above for the StoryEditorComponent.
+
+
 6/14 NJH
 - Finalized new direct download for in-memory-data.service.ts file. The "Make Data Service File" fetches the formatted and up-to-date file from the new ServerFileService then is replaced by a Download button which initiates the file download. In order to work around Angular's security scrubbing, the download URI is sanitized manually by a separate Angular Component.
 - Removed the now obsolete ServerFileDumpComponent.

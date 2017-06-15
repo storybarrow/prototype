@@ -31,27 +31,23 @@ export class ItemEditorComponent implements OnInit {
   ) { }
 
 
-  // TODO: Figure out how to reformat this section into an
-  //    observable-based initializer.
   ngOnInit(): void {
-    let id = this.route.snapshot.params['id'];
 
-    if (id === "new") {
-      this.mode = "New Item";
-      this.itemService.blankItem()
-        .then((item: Item) => {
-          this.oldItem = item;
-          this.newItem = Object.assign({}, item);
-        });
-    }
-    else {
-      this.mode = "Edit Item";
-      this.itemService.getItem(+id)
-        .then((item: Item) => {
-          this.oldItem = item;
-          this.newItem = Object.assign({}, item);
-        });
-    }
+    this.route.params
+      .switchMap((params: Params) => {
+        this.newItem = null;
+        if (params['id'] === "new") {
+          this.mode = "New Item";
+          return this.itemService.blankItem();
+        } else {
+          this.mode = "Edit Item";
+          return this.itemService.getItem(+params['id']);
+        }
+      })
+      .subscribe(item => {
+        this.oldItem = item;
+        this.newItem = Object.assign({}, item);
+      });
   }
 
 

@@ -34,37 +34,29 @@ export class StoryEditorComponent implements OnInit {
   ) { }
 
 
-  // TODO: Figure out how to reformat this section into an
-  //    observable-based initializer.
   ngOnInit(): void {
-    let id = this.route.snapshot.params['id'];
 
-    if (id === "new") {
-      this.mode = "New Story";
-      this.storyService.blankStory()
-        .then(story => {
-          this.oldStory = story;
-          this.newStory = Object.assign({}, story);
-          this.itemService.getItems(this.newStory.item_ids)
-            .then(items => {
-              this.oldItems = items;
-              this.newItems = JSON.parse(JSON.stringify(this.oldItems));
-            });
-        });
-    }
-    else {
-      this.mode = "Edit Story";
-      this.storyService.getStory(+id)
-        .then((story: Story) => {
-          this.oldStory = story;
-          this.newStory = Object.assign({}, story);
-          this.itemService.getItems(this.newStory.item_ids)
-            .then(items => {
-              this.oldItems = items;
-              this.newItems = JSON.parse(JSON.stringify(this.oldItems));
-            });
-        });
-    }
+    this.route.params
+      .switchMap((params: Params) => {
+        this.newStory = null;
+        this.newItems = null;
+        if (params['id'] === "new") {
+          this.mode = "New Story";
+          return this.storyService.blankStory();
+        } else {
+          this.mode = "Edit Story";
+          return this.storyService.getStory(+params['id']);
+        }
+      })
+      .subscribe(story => {
+        this.oldStory = story;
+        this.newStory = Object.assign({}, story);
+        this.itemService.getItems(this.newStory.item_ids)
+          .then(items => {
+            this.oldItems = items;
+            this.newItems = JSON.parse(JSON.stringify(this.oldItems));
+          });
+      });
   }
 
 
