@@ -80,9 +80,11 @@ export class StoryEditorComponent implements OnInit {
 
 
   addItem(): void {
-    this.newStory.item_ids = this.newStory.item_ids.concat([this.newItemId]);
-    this.itemService.getItem(this.newItemId)
-      .then(item => this.newItems.push(item));
+    if (this.newStory.item_ids.indexOf(this.newItemId) == -1) {
+      this.newStory.item_ids = this.newStory.item_ids.concat([this.newItemId]);
+      this.itemService.getItem(this.newItemId)
+        .then(item => this.newItems.push(item));
+    }
   }
 
   deleteItem(item_id: number): void {

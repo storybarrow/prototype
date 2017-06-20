@@ -73,7 +73,8 @@ export class ItemEditorComponent implements OnInit {
   }
 
   addImage(): void {
-    if (typeof this.newImageUrl === "string" && this.newImageUrl.length > 0) {
+    if (typeof this.newImageUrl === "string" && this.newImageUrl.length > 0
+          && this.newItem.imageUrls.indexOf(this.newImageUrl) == -1) {
       this.newItem.imageUrls = this.newItem.imageUrls.concat([this.newImageUrl]);
       this.newImageUrl = null;
     }
@@ -85,7 +86,8 @@ export class ItemEditorComponent implements OnInit {
   }
 
   addTag(): void {
-    if (typeof this.newTag === "string" && this.newTag.length > 0) {
+    if (typeof this.newTag === "string" && this.newTag.length > 0
+          && this.newItem.tags.indexOf(this.newTag) == -1) {
       this.newItem.tags = this.newItem.tags.concat([this.newTag]);
       this.newTag = null;
     }

@@ -1,6 +1,12 @@
+6/20 NJH
+- Modified ItemEditorComponent so that existing tags read from left to right and appear to contain their delete buttons.
+- Modified both EditorComponents so that duplicate images and tags cannot be added to Items and duplicate items cannot be added to Stories.
+
+
 6/15 NJH
 - Fixed a bug that caused the ItemEditorComponent to fail to reload the form when clicking on the header's "New Item" button while editing an existing item.
 - Same fix as above for the StoryEditorComponent.
+- Replaced the sb-logo.jpg file with the vectorized sb-logo.svg.
 
 
 6/14 NJH

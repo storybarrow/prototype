@@ -69,18 +69,23 @@ img {
 }
 
 .tag {
+  position:relative;
   display:inline-block;
   font-weight:bold;
-  padding:2px 4px 2px 4px;
-  width:auto;
+  padding:4px 28px 4px 6px;
   background-color:#BBB;
   border-radius:4px;
   margin:6px 3px 0 3px;
   color:#444;
 }
 
-.btn-delete {
+.btn-delete-tag {
   font-weight:bold;
+  position:absolute;
+  right:2px;
+  top:2px;
+  bottom:2px;
+  border-radius:10px;
 }
 
 .btn-add {

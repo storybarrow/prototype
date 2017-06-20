@@ -54,13 +54,14 @@
   
     <div class="form-group">
       <label for="tags">Tags</label>
-      <ul class="tags">
-        <li *ngFor="let tag of newItem.tags">
-          <span class="tag">#{{tag}}</span>
-          <button type="button" class="btn btn-danger btn-xs btn-delete"
-            (click)="deleteTag(tag)">x</button>
-        </li>
-      </ul>
+      <div class="tags">
+        <span *ngFor="let tag of newItem.tags">
+          <span class="tag">#{{tag}}
+            <button type="button" class="btn btn-danger btn-xs btn-delete-tag"
+              (click)="deleteTag(tag)">x</button>
+          </span>          
+        </span>
+      </div>
       <input type="text" class="form-control" id="tag-input"
         [(ngModel)]="newTag" name="tag"
         #newtag="ngModel">
