@@ -28,6 +28,7 @@ import { StoryDetailComponent } from './story-detail.component';
 import { StoryPageComponent } from './story-page.component';
 import { StoryEditorComponent } from './story-editor.component';
 import { StoryService } from './story.service';
+import { StorySearchService } from './story-search.service';
 
 import { ServerFileService } from './server-file.service';
 
@@ -61,6 +62,7 @@ import { ServerFileService } from './server-file.service';
     ItemService,
     ItemSearchService,
     StoryService,
+    StorySearchService,
     ServerFileService
   ],
   bootstrap: [ AppComponent ]

@@ -10,6 +10,8 @@ import { StoryService } from './story.service';
 @Injectable()
 export class ServerFileService {
 
+  textfields: string[] = ['name', 'caption', 'description', 'tags'];
+
   head: string = `import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryDataService implements InMemoryDbService { 
@@ -33,6 +35,14 @@ export class InMemoryDataService implements InMemoryDbService {
 
 
   stringifyList(objectList: any[]) { 
+    // Adds an attribute named "text" to each object that contains
+    // all of the text of the other text fields to allow easy lookup.
+    for (let object of objectList) {
+      object['text'] = this.textfields
+        .map(key => object[key] instanceof Array ? 
+          object[key].join(' ') : object[key]) // casts everything into strings
+        .join('~~')
+    }
     return objectList.map(object => JSON.stringify(object)).join(",\n                  ");
   }
 

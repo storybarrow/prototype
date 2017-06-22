@@ -40,7 +40,7 @@ export class CollectionComponent {
     }
   }
 
-  updateHref(): void {
+  buildServerFileDownload(): void {
     this.serverFileService
       .getEncodedText()
       .then(text => {
@@ -55,12 +55,13 @@ export class CollectionComponent {
   prepDataServiceFile(): void {
     this.buttonPrepping = true;
     this.prepButtonText = "Preparing..."
-    this.updateHref();
+    this.buildServerFileDownload();
   }
 
+  // NB: An anchor tag with a click event bound to a function
+  // only follows the link if that function returns true.
   downloadClick(): boolean {
     this.downloadReady = false;
-    console.log("clicked");
     return true;
   }
 }

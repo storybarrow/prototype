@@ -21,7 +21,7 @@ import { ItemSearchService } from './item-search.service';
   templateUrl: 'templates/item-search.component.html',
   styleUrls: [ 'styles/item-search.component.css' ]
 })
-export class ItemSearchComponent implements OnInit {
+export class ItemFilterComponent implements OnInit {
 
   @Input() searchAction: (i: Item) => any;
   items: Observable<Item[]>;

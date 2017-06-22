@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Item } from './item';
 import { ItemService } from './item.service';
+import { ItemSearchService } from './item-search.service';
+
+import 'rxjs/add/operator/toPromise';
 
 
 @Component({
@@ -9,11 +12,17 @@ import { ItemService } from './item.service';
   templateUrl: 'templates/item-list.component.html',
   styleUrls: [ 'styles/item-list.component.css' ]
 })
-export class ItemListComponent  { 
+export class ItemListComponent implements OnInit {
+
   items: Item[];
   selectedItem: Item;
+  filterBoxText: string;
+  currentFilter: string;
 
-  constructor(private itemService: ItemService) { }
+  constructor(
+    private itemService: ItemService,
+    private itemSearchService: ItemSearchService
+  ) { }
 
   ngOnInit(): void {
     this.getItems();
@@ -21,8 +30,30 @@ export class ItemListComponent  {
 
 
   getItems(): void {
-    this.itemService.getItems()
-      .then(items => this.items = items);
+    if (!this.currentFilter) {
+      this.itemService.getItems()
+        .then(items => this.items = items);
+    } else {
+      this.itemSearchService.searchAll(this.currentFilter)
+        .toPromise()
+        .then(items => this.items = items);
+    }
+  }
+
+
+  filterItems(): void {
+    this.currentFilter = this.filterBoxText.split('~~').join('');
+    console.log("filter parameter: " + this.currentFilter);
+    this.getItems();
+    if (this.items.indexOf(this.selectedItem) == -1) {
+      this.selectedItem = null;
+    }
+  }
+
+  resetFilter(): void {
+    this.currentFilter = null;
+    this.filterBoxText = null;
+    this.getItems();
   }
 
 
