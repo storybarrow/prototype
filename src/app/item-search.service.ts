@@ -36,9 +36,9 @@ export class ItemSearchService {
   // the values are the desired text strings.
   // Returns a list of items which contain the desired terms in EACH
   // of the specified fields.
-  searchFields(terms: Object): Observable<Item[]> {
+  searchFields(terms: object): Observable<Item[]> {
     for (let key of Object.keys(terms)) {
-      terms[key] = terms[key].toLowerCase().trim();
+      terms[key] = terms[key].toLowerCase();
     }
     return this.http.get(this.itemsUrl)
       .map(response => (response.json().data as Item[])
@@ -51,7 +51,7 @@ export class ItemSearchService {
   // Takes a single search string and returns all of the items
   // that have a text string containing the search term.
   searchAllFields(term: string): Observable<Item[]> {
-    term = term.toLowerCase().trim();
+    term = term.toLowerCase();
     return this.http.get(this.itemsUrl)
       .map(response => (response.json().data as Item[])
         .filter(item => Object.keys(item)
