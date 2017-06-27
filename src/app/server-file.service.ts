@@ -34,15 +34,7 @@ export class InMemoryDataService implements InMemoryDbService {
   ) { }
 
 
-  stringifyList(objectList: any[]) { 
-    // Adds an attribute named "text" to each object that contains
-    // all of the text of the other text fields to allow easy lookup.
-    for (let object of objectList) {
-      object['text'] = this.textfields
-        .map(key => object[key] instanceof Array ? 
-          object[key].join(' ') : object[key]) // casts everything into strings
-        .join('~~')
-    }
+  stringifyList(objectList: any[]) {
     return objectList.map(object => JSON.stringify(object)).join(",\n                  ");
   }
 
