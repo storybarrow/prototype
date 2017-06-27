@@ -1,3 +1,8 @@
+6/27 NJH
+- Reworked both Item and Story search services. The result is more stable and customizable.
+- When editing items, the new tag feature now splits the tags on commas, allowing the user to add multiple tags simultaneously.
+
+
 6/20 NJH
 - Modified ItemEditorComponent so that existing tags read from left to right and appear to contain their delete buttons.
 - Modified both EditorComponents so that duplicate images and tags cannot be added to Items and duplicate items cannot be added to Stories.

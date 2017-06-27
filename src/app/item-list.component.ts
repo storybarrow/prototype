@@ -34,7 +34,7 @@ export class ItemListComponent implements OnInit {
       this.itemService.getItems()
         .then(items => this.items = items);
     } else {
-      this.itemSearchService.searchAll(this.currentFilter)
+      this.itemSearchService.searchAllFields(this.currentFilter)
         .toPromise()
         .then(items => this.items = items);
     }

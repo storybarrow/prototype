@@ -18,7 +18,7 @@ export class ItemEditorComponent implements OnInit {
   oldItem: Item;
   newItem: Item;
   mode: string;
-  newTag: string;
+  newTags: string;
   newImageUrl: string;
   selectedImageUrl: string;
 
@@ -85,12 +85,15 @@ export class ItemEditorComponent implements OnInit {
     this.newItem.tags = this.newItem.tags.filter(t => t !== tag);
   }
 
-  addTag(): void {
-    if (typeof this.newTag === "string" && this.newTag.length > 0
-          && this.newItem.tags.indexOf(this.newTag) == -1) {
-      this.newItem.tags = this.newItem.tags.concat([this.newTag]);
-      this.newTag = null;
+  addTags(): void {
+    if (typeof this.newTags === "string" && this.newTags.length > 0) {
+      for (let newTag of this.newTags.split(',').map(str => str.trim())) {
+        if (newTag.length > 0 && this.newItem.tags.indexOf(newTag) == -1) {
+          this.newItem.tags = this.newItem.tags.concat([newTag]);
+        }
+      }
     }
+    this.newTags = null;
   }
 
 

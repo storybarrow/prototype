@@ -41,7 +41,7 @@ export class ItemSearchComponent implements OnInit {
       .debounceTime(300)       // waits 300ms after each keystroke
       .distinctUntilChanged()  // ignores consecutive identical terms
       .switchMap(term => term  // switches to new observables
-        ? this.itemSearchService.searchName(term) // returns http search observable
+        ? this.itemSearchService.searchFields({"name": term}) // returns http search Obsvble
         : Observable.of<Item[]>([])) // or just an Obsvble of empty items if no term
       .catch(error => {
         console.log(error);

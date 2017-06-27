@@ -34,7 +34,7 @@ export class StoryListComponent implements OnInit {
       this.storyService.getStories()
         .then(stories => this.stories = stories);
     } else {
-      this.storySearchService.searchAll(this.currentFilter)
+      this.storySearchService.searchAllFields(this.currentFilter)
         .toPromise()
         .then(stories => this.stories = stories);
     }

@@ -63,11 +63,11 @@
         </span>
       </div>
       <input type="text" class="form-control" id="tag-input"
-        [(ngModel)]="newTag" name="tag"
+        [(ngModel)]="newTags" name="tag"
         #newtag="ngModel">
       <button type="button" class="btn btn-success btn-xs btn-add"
         [disabled]="!newtag.valid"
-        (click)="addTag()">+</button>
+        (click)="addTags()">+</button>
     </div>
   
     <div *ngIf="newItem.id"><label>id: </label>{{newItem.id}}</div>
