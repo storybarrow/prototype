@@ -57,5 +57,7 @@
     "@types/node": "^6.0.46",
     "@types/jasmine": "2.5.36"
   },
-  "repository": {}
+  "repository": {},
+  "engines": { "node" : ">=4.2.6",
+               "npm" : ">=3.5.2" }
 }
