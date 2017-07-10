@@ -1,3 +1,7 @@
+7/10 NJH
+- Added terms.ts, which contains the TERMS constant that can redefine app terminology. Currently works for Items and Stories.
+
+
 6/27 NJH
 - Reworked both Item and Story search services. The result is more stable and customizable.
 - When editing items, the new tag feature now splits the tags on commas, allowing the user to add multiple tags simultaneously.
