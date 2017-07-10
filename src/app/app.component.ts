@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { TERMS } from './terms';
 
 @Component({
   selector: 'sb-app',
@@ -8,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'StoryBarrow';
+  terms = TERMS;
 }

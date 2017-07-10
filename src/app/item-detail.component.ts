@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Item } from './item';
 import { ItemService } from './item.service';
 
+import { TERMS } from './terms';
+
 
 @Component({
   selector: 'item-detail',
@@ -12,6 +14,7 @@ import { ItemService } from './item.service';
 })
 export class ItemDetailComponent {
 
+  terms = TERMS;
   @Input() item: Item;
   @Input() deleteFunc: (i: Item) => void;
   sample: string = "sampletext";

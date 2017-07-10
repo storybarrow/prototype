@@ -10,6 +10,8 @@ import { StoryService } from './story.service';
 import { Item } from './item';
 import { ItemService } from './item.service';
 
+import { TERMS } from './terms';
+
 
 @Component({
   selector: 'story-editor',
@@ -18,6 +20,7 @@ import { ItemService } from './item.service';
 })
 export class StoryEditorComponent implements OnInit {
 
+  terms = TERMS;
   oldStory: Story;
   newStory: Story;
   oldItems: Item[];
@@ -41,10 +44,10 @@ export class StoryEditorComponent implements OnInit {
         this.newStory = null;
         this.newItems = null;
         if (params['id'] === "new") {
-          this.mode = "New Story";
+          this.mode = "New " + this.terms.story;
           return this.storyService.blankStory();
         } else {
-          this.mode = "Edit Story";
+          this.mode = "Edit " + this.terms.story;
           return this.storyService.getStory(+params['id']);
         }
       })

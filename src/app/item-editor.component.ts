@@ -7,6 +7,8 @@ import 'rxjs/add/operator/switchMap';
 import { Item } from './item';
 import { ItemService } from './item.service';
 
+import { TERMS } from './terms';
+
 
 @Component({
   selector: 'item-editor',
@@ -15,6 +17,7 @@ import { ItemService } from './item.service';
 })
 export class ItemEditorComponent implements OnInit {
 
+  terms = TERMS;
   oldItem: Item;
   newItem: Item;
   mode: string;
@@ -37,10 +40,10 @@ export class ItemEditorComponent implements OnInit {
       .switchMap((params: Params) => {
         this.newItem = null;
         if (params['id'] === "new") {
-          this.mode = "New Item";
+          this.mode = "New " + this.terms.item;
           return this.itemService.blankItem();
         } else {
-          this.mode = "Edit Item";
+          this.mode = "Edit " + this.terms.item;
           return this.itemService.getItem(+params['id']);
         }
       })

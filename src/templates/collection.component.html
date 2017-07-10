@@ -1,8 +1,8 @@
 <div id="selector-row">
   <button type="button" [ngClass]="buttonStyle('items')"
-    (click)="show('items')">Items</button>
+    (click)="show('items')">{{terms.items}}</button>
   <button type="button" [ngClass]="buttonStyle('stories')"
-    (click)="show('stories')">Stories</button>
+    (click)="show('stories')">{{terms.stories}}</button>
 </div>
 <item-list *ngIf="selectedList==='items'"></item-list>
 <story-list *ngIf="selectedList==='stories'"></story-list>

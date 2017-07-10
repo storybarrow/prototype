@@ -6,6 +6,8 @@ import { StoryListComponent } from './story-list.component';
 
 import { ServerFileService } from './server-file.service';
 
+import { TERMS } from './terms';
+
 
 
 @Component({
@@ -15,6 +17,7 @@ import { ServerFileService } from './server-file.service';
 })
 export class CollectionComponent { 
   
+  terms = TERMS;
   selectedList: string;
   hrefconst: string = 'data:text/plain;charset=utf-8,';
   serverhref: SafeUrl;

@@ -7,6 +7,8 @@ import { StoryService } from './story.service';
 import { Item } from './item';
 import { ItemService } from './item.service';
 
+import { TERMS } from './terms';
+
 
 @Component({
   selector: 'story-detail',
@@ -15,6 +17,7 @@ import { ItemService } from './item.service';
 })
 export class StoryDetailComponent {
 
+  terms = TERMS;
   @Input() story: Story;
   @Input() deleteFunc: (s: Story) => void;
   items: Item[];

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { StringFilterPipe } from './filter.pipe';
+import { FirstLetterUpperPipe } from './first-letter-upper.pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -56,7 +57,8 @@ import { ServerFileService } from './server-file.service';
     StoryPageComponent,
     StoryEditorComponent,
 
-    StringFilterPipe
+    StringFilterPipe,
+    FirstLetterUpperPipe
   ],
   providers: [ 
     ItemService,
