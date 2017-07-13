@@ -105,6 +105,11 @@ export class StoryEditorComponent implements OnInit {
   }
 
 
+  nonzeroItems(): boolean {
+    return (this.newItems && this.newItems.length > 0);
+  }
+
+
   // A callback function that defines the 
    // StoryEditor action on a search click
   addItemOnSearch: (item: Item) => void =

@@ -17,11 +17,11 @@ import { ItemSearchService } from './item-search.service';
 
 
 @Component({
-  selector: 'item-search',
-  templateUrl: 'templates/item-search.component.html',
-  styleUrls: [ 'styles/item-search.component.css' ]
+  selector: 'item-autofill',
+  templateUrl: 'templates/item-autofill.component.html',
+  styleUrls: [ 'styles/item-autofill.component.css' ]
 })
-export class ItemSearchComponent implements OnInit {
+export class ItemAutofillComponent implements OnInit {
 
   @Input() searchAction: (i: Item) => any;
   items: Observable<Item[]>;

@@ -1,3 +1,14 @@
+7/13 NJH
+- Item/Story lists now search/filter from a query string. This will be used by a filter component anywhere in the app.
+- Renamed CollectionComponent and CollectionHeaderComponent replacing "Collection" with "Homepage" and the "collection" route with "home".
+
+
+7/12 NJH
+- Refactored routing so that the Item/Story lists on the homepage live in separate children of the collection/ route.
+- Refactored the CollectionComponent- now contains just a router outlet and the download button. The router outlet generates the CollectionHeaderComponent, which contains the header tabs and another router outlet for the item or story lists.
+- Renamed ItemSearchComponent to ItemAutofillComponent
+
+
 7/10 NJH
 - Added terms.ts, which contains the TERMS constant that can redefine app terminology. Currently works for Items and Stories.
 

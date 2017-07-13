@@ -35,14 +35,15 @@
     
     <div class="form-group">
       <label for="items">{{terms.items}}</label>
-      <ul class="item-list">
+      <ul *ngIf="nonzeroItems()" 
+          class="item-list">
         <li *ngFor="let item of newItems">
           <span class="item-card">{{item.name}}</span>
           <button type="button" class="btn btn-danger btn-xs btn-delete"
             (click)="deleteItem(item.id)">x</button>
         </li>
       </ul>
-      <item-search [searchAction]="addItemOnSearch"></item-search>
+      <item-autofill [searchAction]="addItemOnSearch"></item-autofill>
     </div>
     
     <div *ngIf="newStory.id"><label>id: </label>{{newStory.id}}</div>

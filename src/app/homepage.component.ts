@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 
+import { ROUTER_DIRECTIVES } from '@angular/router';
+
 import { ItemListComponent } from './item-list.component';
 import { StoryListComponent } from './story-list.component';
 
@@ -11,11 +13,11 @@ import { TERMS } from './terms';
 
 
 @Component({
-  selector: 'collection',
-  templateUrl: 'templates/collection.component.html',
-  styleUrls: [ 'styles/collection.component.css' ]
+  selector: 'homepage',
+  templateUrl: 'templates/homepage.component.html',
+  styleUrls: [ 'styles/homepage.component.css' ]
 })
-export class CollectionComponent { 
+export class HomepageComponent { 
   
   terms = TERMS;
   selectedList: string;

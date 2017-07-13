@@ -1,0 +1,13 @@
+<router-outlet></router-outlet>
+
+<div id="data-service-download">
+  <button *ngIf="!downloadReady"
+    type="button" (click)="prepDataServiceFile()"
+    class="btn btn" [disabled]="buttonPrepping">
+    {{prepButtonText}}
+  </button>
+  <a *ngIf="downloadReady"
+    [href]="serverhref" download="in-memory-data.service.ts"
+    (click)="downloadClick()"
+    class="btn btn-primary">Download File</a>
+</div>

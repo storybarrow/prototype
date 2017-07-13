@@ -8,7 +8,7 @@
   </div>
   <div id="description">{{item.description}}</div>
   <div id="tags">
-    <span *ngFor="let tag of (item.tags | stringFilter)" class="tag">
+    <span *ngFor="let tag of item.tags" class="tag">
       #{{tag}}
     </span>
   </div>

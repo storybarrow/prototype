@@ -1,0 +1,9 @@
+<div id="selector-row">
+  <button type="button" [ngClass]="buttonStyle('items')"
+    (click)="onSelect('items')">{{terms.items}}</button>
+  <button type="button" [ngClass]="buttonStyle('stories')"
+    (click)="onSelect('stories')">{{terms.stories}}</button>
+</div>
+
+
+<router-outlet></router-outlet>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+
+import 'rxjs/add/operator/switchMap';
 
 import { Item } from './item';
 import { ItemService } from './item.service';
@@ -16,32 +19,44 @@ export class ItemListComponent implements OnInit {
 
   items: Item[];
   selectedItem: Item;
-  filterBoxText: string;
-  currentFilter: string;
+  //filterBoxText: string;
+  filterText: string;
 
   constructor(
+    private route: ActivatedRoute,
     private itemService: ItemService,
     private itemSearchService: ItemSearchService
   ) { }
 
+
   ngOnInit(): void {
-    this.getItems();
+    
+    this.route.queryParams
+      .switchMap((params: Params) => {
+        if (params['text']) {
+          this.filterText = params['text'];
+        } else {
+          this.filterText = null;
+        }
+        return this.getItems();
+      })
+      .subscribe(items => this.items = items);
+
   }
 
 
-  getItems(): void {
-    if (!this.currentFilter) {
-      this.itemService.getItems()
-        .then(items => this.items = items);
+  // Fetches item list (filtered if necessary)
+  getItems(): Promise<Item[]> {
+    if (!this.filterText) {
+      return this.itemService.getItems();
     } else {
-      this.itemSearchService.searchAllFields(this.currentFilter)
-        .toPromise()
-        .then(items => this.items = items);
+      return this.itemSearchService.searchAllFields(this.filterText)
+        .toPromise();
     }
   }
 
 
-  filterItems(): void {
+/*  filterItems(): void {
     this.currentFilter = this.filterBoxText.split('~~').join('');
     console.log("filter parameter: " + this.currentFilter);
     this.getItems();
@@ -54,7 +69,7 @@ export class ItemListComponent implements OnInit {
     this.currentFilter = null;
     this.filterBoxText = null;
     this.getItems();
-  }
+  }  */
 
 
   onSelect(item: Item): void {

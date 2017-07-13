@@ -1,27 +1,65 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CollectionComponent } from './collection.component';
+import { HomepageComponent } from './homepage.component';
+import { HomepageHeaderComponent } from './homepage-header.component';
 
+import { ItemListComponent }  from './item-list.component';
 import { ItemPageComponent } from './item-page.component';
 import { ItemEditorComponent } from './item-editor.component';
 
+import { StoryListComponent }  from './story-list.component';
 import { StoryPageComponent } from './story-page.component';
 import { StoryEditorComponent } from './story-editor.component';
 
 
 
-const ROUTES: Routes = [
-  { path: '',  redirectTo: '/home',  pathMatch: 'full' },
-  { path: 'home', component: CollectionComponent },
-  { path: 'item/:id', component: ItemPageComponent },
-  { path: 'edititem/:id', component: ItemEditorComponent },
-  { path: 'story/:id', component: StoryPageComponent },
-  { path: 'editstory/:id', component: StoryEditorComponent }
+const routes: Routes = [
+  { 
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full' 
+  },
+  { 
+    path: 'home',
+    component: HomepageComponent,
+    children: [
+      {
+        path: '',
+        component: HomepageHeaderComponent,
+        children: [
+          {
+            path: 'items',
+            component: ItemListComponent
+          },
+          {
+            path: 'stories',
+            component: StoryListComponent
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path: 'item/:id',
+    component: ItemPageComponent
+  },
+  { 
+    path: 'edititem/:id',
+    component: ItemEditorComponent
+  },
+  { 
+    path: 'story/:id',
+    component: StoryPageComponent
+  },
+  { 
+    path: 'editstory/:id',
+    component: StoryEditorComponent
+  }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(ROUTES) ],
+  imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
