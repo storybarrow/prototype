@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/toPromise';
 
 import { Item } from './item';
 import { ItemService } from './item.service';
 import { ItemSearchService } from './item-search.service';
 
-import 'rxjs/add/operator/toPromise';
 
 
 @Component({
@@ -19,7 +19,6 @@ export class ItemListComponent implements OnInit {
 
   items: Item[];
   selectedItem: Item;
-  //filterBoxText: string;
   filterText: string;
 
   constructor(
@@ -45,7 +44,7 @@ export class ItemListComponent implements OnInit {
   }
 
 
-  // Fetches item list (filtered if necessary)
+  // Fetches item list (filtered if this.filterText has value)
   getItems(): Promise<Item[]> {
     if (!this.filterText) {
       return this.itemService.getItems();
@@ -55,21 +54,6 @@ export class ItemListComponent implements OnInit {
     }
   }
 
-
-/*  filterItems(): void {
-    this.currentFilter = this.filterBoxText.split('~~').join('');
-    console.log("filter parameter: " + this.currentFilter);
-    this.getItems();
-    if (this.items.indexOf(this.selectedItem) == -1) {
-      this.selectedItem = null;
-    }
-  }
-
-  resetFilter(): void {
-    this.currentFilter = null;
-    this.filterBoxText = null;
-    this.getItems();
-  }  */
 
 
   onSelect(item: Item): void {

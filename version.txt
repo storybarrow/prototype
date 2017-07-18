@@ -1,5 +1,11 @@
+7/18 NJH
+- Renamed "Story" to "Collection" in terms.ts.
+- NB: items and stories still appear in all route names. Integrating routenames with terms.ts will take a little more work.
+- StoryList now searches/filters from a query string as with the ItemList.
+
+
 7/13 NJH
-- Item/Story lists now search/filter from a query string. This will be used by a filter component anywhere in the app.
+- ItemList now searches/filters from a query string. This will be used by a filter component anywhere on the app.
 - Renamed CollectionComponent and CollectionHeaderComponent replacing "Collection" with "Homepage" and the "collection" route with "home".
 
 

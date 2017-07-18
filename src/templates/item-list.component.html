@@ -1,18 +1,4 @@
 <body>
-<!--<div class="filterbar">
-  <input type="text" id="filter-box" name="filter"
-    [(ngModel)]="filterBoxText"/>
-  <button class="btn btn-primary btn-filter"
-    type="button" (click)="filterItems()">
-    <img src="./graphics/search-icon-light.png"
-      id="search-icon" style="height:15px">
-  </button>
-  <button class="btn btn-danger btn-clear"
-    type="button" (click)="resetFilter()">x</button>
-  <span *ngIf="currentFilter">
-    Showing: {{currentFilter}}
-  </span>
-</div> -->
 <div class="sidebar">
   <item-detail [item]="selectedItem" [deleteFunc]="clearItem"></item-detail>
 </div>
