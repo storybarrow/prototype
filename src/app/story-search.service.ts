@@ -14,28 +14,12 @@ export class StorySearchService {
 
   constructor(private http: Http) { }
 
-/* // Now deprecated search-by-regex-in-name feature
-  // Use searchFields({"name": term}) instead.
-  searchName(term: string): Observable<Story[]> {
-    return this.http
-      .get(`${this.storiesUrl}/?name=${term}`)
-      .map(response => response.json().data as Story[]);
-  }
-*/
-
-/*  // WARN: This method does not work with our server
-  searchAll(term: string): Observable<Story[]> {
-    return this.http
-      .get(`${this.storiesUrl}/?text=${term}`)
-      .map(response => response.json().data as Story[]);
-  }
-*/
 
   // Takes an object where the keys correspond to Item keys and
   // the values are the desired text strings.
   // Returns a list of stories which contain the desired terms in EACH
   // of the specified fields.
-  searchFields(terms: Object): Observable<Story[]> {
+  searchTextFields(terms: Object): Observable<Story[]> {
     for (let key of Object.keys(terms)) {
       terms[key] = terms[key].toLowerCase().trim();
     }
@@ -44,6 +28,15 @@ export class StorySearchService {
         .filter(story => Object.keys(terms)
           .every(key => key in story && 
             story[key].toLowerCase().includes(terms[key]))));
+  }
+
+
+  searchTags(term: string): Observable<Story[]> {
+    term = term.toLowerCase().trim();
+    return this.http.get(this.storiesUrl)
+      .map(response => (response.json().data as Story[])
+        .filter(story => story["tags"].map((tag: string) => tag.toLowerCase())
+          .indexOf(term) >= 0));
   }
 
 

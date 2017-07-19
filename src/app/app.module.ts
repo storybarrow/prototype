@@ -4,7 +4,6 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
-//import { CollectionModule } from './collection.module';
 
 // Imports for loading & setting up the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -14,6 +13,8 @@ import { StringFilterPipe }     from './filter.pipe';
 import { FirstLetterUpperPipe } from './first-letter-upper.pipe';
 
 import { AppComponent } from './app.component';
+
+import { SearchBarComponent } from './search-bar.component';
 
 import { HomepageComponent }       from './homepage.component';
 import { HomepageHeaderComponent } from './homepage-header.component';
@@ -41,12 +42,12 @@ import { ServerFileService } from './server-file.service';
     BrowserModule, 
     FormsModule,
     HttpModule,
-//    CollectionModule,
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   declarations: [
     AppComponent,
+    SearchBarComponent,
     HomepageComponent,
     HomepageHeaderComponent,
 

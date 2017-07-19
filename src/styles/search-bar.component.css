@@ -1,0 +1,56 @@
+body {
+  margin:5px 0 5px 10px;
+}
+
+#selector-row {
+  margin:5px 5px 5px 5px;
+}
+
+.tab {
+  background-color: #999;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.selected {
+  background-color:#88F;
+}
+
+
+#search-bar {
+  background-color: #DDD;
+  border-radius:4px;
+}
+#search-box {
+  margin:5px 0 5px 5px;
+  padding-left:5px;
+  height:30px;
+  width:200px;
+  border-radius:5px;
+  background-color: transparent;
+}
+.btn-search {
+  padding:0;
+  margin:0;
+  height:30px; width:30px;
+  border-color: transparent;
+  background-color: transparent;
+}
+img#search-icon {
+  height:15px;
+  margin:0;
+  padding:0 0 3px 0;
+}
+
+
+.ng-valid[required], .ng-valid.required  {
+  border: 0;
+}
+.ng-invalid:not(form)  {
+  border: 0;
+}

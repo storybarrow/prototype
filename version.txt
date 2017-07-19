@@ -1,7 +1,13 @@
+7/19 NJH
+- Added the SearchComponent to the AppComponent header which appears in all views. The SearchComponent uses the querystring search mechanic implemented previously. 
+- NB: EditorComponents need an alert that double-checks with the user when they try to navigate away from a partially-completed form.
+
+
 7/18 NJH
 - Renamed "Story" to "Collection" in terms.ts.
 - NB: items and stories still appear in all route names. Integrating routenames with terms.ts will take a little more work.
 - StoryList now searches/filters from a query string as with the ItemList.
+- The querystring key "tag" now searches exclusively by the members' tag fields. The key "text" still searches all text including tags. Note that this is implemented for Collections while collections do not yet have editable tags. Get on that!
 
 
 7/13 NJH

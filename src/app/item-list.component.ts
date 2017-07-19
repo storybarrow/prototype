@@ -19,7 +19,8 @@ export class ItemListComponent implements OnInit {
 
   items: Item[];
   selectedItem: Item;
-  filterText: string;
+  filterAllText: string;
+  filterTagText: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,9 +34,12 @@ export class ItemListComponent implements OnInit {
     this.route.queryParams
       .switchMap((params: Params) => {
         if (params['text']) {
-          this.filterText = params['text'];
+          this.filterAllText = params['text'];
+        } else if (params['tag']) {
+          this.filterTagText = params['tag'];
         } else {
-          this.filterText = null;
+          this.filterAllText = null;
+          this.filterTagText = null;
         }
         return this.getItems();
       })
@@ -46,11 +50,14 @@ export class ItemListComponent implements OnInit {
 
   // Fetches item list (filtered if this.filterText has value)
   getItems(): Promise<Item[]> {
-    if (!this.filterText) {
-      return this.itemService.getItems();
-    } else {
-      return this.itemSearchService.searchAllFields(this.filterText)
+    if (this.filterAllText) {
+      return this.itemSearchService.searchAllFields(this.filterAllText)
         .toPromise();
+    } else if (this.filterTagText) {
+      return this.itemSearchService.searchTags(this.filterTagText)
+        .toPromise();
+    } else {
+      return this.itemService.getItems();
     }
   }
 

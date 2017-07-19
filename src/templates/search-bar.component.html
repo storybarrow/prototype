@@ -1,0 +1,21 @@
+<body>
+<div id="selector-row">
+  <button type="button" [ngClass]="buttonStyle('items')"
+    (click)="onSelectMode('items')">{{terms.items}}</button>
+  <button type="button" [ngClass]="buttonStyle('stories')"
+    (click)="onSelectMode('stories')">{{terms.stories}}</button>
+</div>
+<div id="search-bar">
+  <input type="text"  id="search-box"  name="search"
+    required  placeholder="Search"
+    [(ngModel)]="searchText"
+    #searchStatus="ngModel" />
+  <button class="btn btn-search"
+    type="button"  (click)="onSearch()"
+    [disabled]="!(searchStatus.valid && mode)">
+    <img src="./graphics/search-icon-light.png"
+      id="search-icon"  style="height:15px">
+  </button>
+  <br>{{searchStatus.className}}
+</div>
+<body>

@@ -8,15 +8,21 @@ header {
 }
 
 nav {
-  margin:0 0 0 5px;
-  float:left;
+  margin: 0 5px 0 5px;
+  float: left;
+  width: 100px;
 }
 
 .nav-card {
-  background-color:#ddd;
-  padding:3px 5px;
-  height:25%;
-  width:125%;
-  margin:5px 0 5px 0;
+  background-color: #ddd;
+  padding: 3px 5px;
+  height: 25%;
+  width: 125%;
+  margin: 5px 0 5px 0;
   text-align: left;
+}
+
+search-bar {
+  float:left;
+  margin: 5px 0 0 30px
 }

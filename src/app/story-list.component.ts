@@ -19,7 +19,8 @@ export class StoryListComponent implements OnInit {
 
   stories: Story[];
   selectedStory: Story;
-  filterText: string;
+  filterAllText: string;
+  filterTagText: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,9 +34,12 @@ export class StoryListComponent implements OnInit {
     this.route.queryParams
       .switchMap((params: Params) => {
         if (params['text']) {
-          this.filterText = params['text'];
+          this.filterAllText = params['text'];
+        } else if (params['tag']) {
+          this.filterTagText = params['tag'];
         } else {
-          this.filterText = null;
+          this.filterAllText = null;
+          this.filterTagText = null;
         }
         return this.getStories();
       })
@@ -46,11 +50,14 @@ export class StoryListComponent implements OnInit {
 
   // Fetches story list (filtered if this.filterText has value)
   getStories(): Promise<Story[]> {
-    if (!this.filterText) {
-      return this.storyService.getStories();
-    } else {
-      return this.storySearchService.searchAllFields(this.filterText)
+    if (this.filterAllText) {
+      return this.storySearchService.searchAllFields(this.filterAllText)
         .toPromise();
+    } else if (this.filterTagText) {
+      return this.storySearchService.searchTags(this.filterTagText)
+        .toPromise();
+    } else {
+      return this.storyService.getStories();
     }
   }
 
