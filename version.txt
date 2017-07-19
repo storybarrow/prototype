@@ -1,6 +1,7 @@
 7/19 NJH
 - Added the SearchComponent to the AppComponent header which appears in all views. The SearchComponent uses the querystring search mechanic implemented previously. 
 - NB: EditorComponents need an alert that double-checks with the user when they try to navigate away from a partially-completed form.
+- Reconfigured HomepageHeader so that Item/Story tab styling reflects current route. i.e.: When navigating to /home/items from outside the HomepageHeader, the Items tab appears selected.
 
 
 7/18 NJH

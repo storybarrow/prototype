@@ -1,9 +1,10 @@
 <div id="selector-row">
-  <button type="button" [ngClass]="buttonStyle('items')"
+  <button type="button" class="tab"
+    routerLink="/home/items" routerLinkActive="is-active"
     (click)="onSelect('items')">{{terms.items}}</button>
-  <button type="button" [ngClass]="buttonStyle('stories')"
+  <button type="button" class="tab"
+    routerLink="/home/stories" routerLinkActive="is-active"
     (click)="onSelect('stories')">{{terms.stories}}</button>
 </div>
-
 
 <router-outlet></router-outlet>
