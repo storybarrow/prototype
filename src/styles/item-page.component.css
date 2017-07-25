@@ -46,6 +46,24 @@ button {
   margin:5px 0 5px 0;
 }
 
+.narrative {
+  height:25px; width:400px;
+  margin: 0 5px 5px 0;
+  text-align: left;
+  border:none;
+  background-color: #EEE;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.narrative:focus {
+  background-color: #CCC;
+  height: unset;  width: unset;
+  white-space: unset;
+  overflow: unset;
+}
+
 #tags {
   font-weight:bold;
   font-size:15px;

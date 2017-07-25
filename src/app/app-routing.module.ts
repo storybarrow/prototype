@@ -33,7 +33,7 @@ const routes: Routes = [
             component: ItemListComponent
           },
           {
-            path: 'stories',
+            path: 'collections',
             component: StoryListComponent
           }
         ]
@@ -49,11 +49,11 @@ const routes: Routes = [
     component: ItemEditorComponent
   },
   { 
-    path: 'story/:id',
+    path: 'collection/:id',
     component: StoryPageComponent
   },
   { 
-    path: 'editstory/:id',
+    path: 'editcollection/:id',
     component: StoryEditorComponent
   }
 ];

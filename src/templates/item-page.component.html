@@ -7,6 +7,14 @@
       class="itemimage">
   </div>
   <div id="description">{{item.description}}</div>
+  <div id="narratives">
+    <h5><b>Narratives</b></h5>
+    <div *ngFor="let narrative of item.narratives">
+      <button class="narrative">
+        {{narrative}}
+      </button>
+    </div>
+  </div>
   <div id="tags">
     <span *ngFor="let tag of (item.tags | stringFilter)" class="tag">
       #{{tag}}

@@ -43,7 +43,7 @@ export class ItemService {
 
   blankItem(): Promise<Item> {
     return this.newId()
-      .then(id => new Item(id, "", "", "", []));
+      .then(id => new Item(id, "", "", "", [], []));
   }
 
 

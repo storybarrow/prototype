@@ -17,6 +17,7 @@ import { ItemService } from './item.service';
 export class ItemPageComponent implements OnInit {
 
   item: Item;
+  selectedNarrative: string;
 
   constructor(
     private itemService: ItemService,
@@ -48,5 +49,8 @@ export class ItemPageComponent implements OnInit {
       .delete(this.item)
       .then(() => this.goHome());
   }
+
+
+
 
 }

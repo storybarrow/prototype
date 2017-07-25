@@ -1,5 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+
+// A pipe that filters a list for non-null strings.
 @Pipe({
   name: 'stringFilter'
 })
